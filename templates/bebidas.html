@@ -1,0 +1,111 @@
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung" rel="stylesheet">
+<style>
+.post {
+
+  margin-top: -22px;
+
+}
+
+.pattern{
+  background-image: url('../img/pattern.png');
+  background-repeat: repeat;
+  z-index: 0;
+  background-color: #FFF;
+}
+
+.background-title{
+
+ background-color: rgba(4, 4, 4, 0.75);
+ width: 100%;
+ height: 40px;
+ position: absolute;
+ top: 101px;
+ left: 0px;
+}
+
+.background-title-pequeno{
+
+  background-color: rgba(4, 4, 4, 0.75);
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 74px;
+  left: 0px;
+}
+
+.texto-tiles-pequeno{
+ position: absolute;
+ top: 77px;
+ left: 14px;
+ bottom: 0px;
+ font-family: Yeon Sung!important;
+ color: #FFF;
+ font-size: 15px;
+}
+
+.texto-tiles{
+  position: absolute;
+  top: 107px;
+  left: 14px;
+  bottom: 0px;
+  font-family: Yeon Sung!important;
+  color: #FFF;
+  font-size: 20px
+}
+
+.card:active{
+  /*background: rgb(0,0,0);*/
+  opacity: 0.8;
+  
+}
+
+.blockmedio-1{
+  height: 175px;
+  background: url('img/blocktile.jpg');
+  background-size: cover;
+}
+.blockmedio-2{
+  height: 175px;
+  background: url('img/tabacaria.jpg');
+  background-size: cover;
+}
+.blockmedio-3{
+  height: 175px;
+  background: url('img/picante.jpg');
+  background-size: cover;
+}
+.blockmedio-4{
+  height: 175px;
+  background: url('img/especiais.jpg');
+  background-size: cover;
+}
+
+.overlay{
+
+  background-color:white;
+  z-index: 999;
+  margin-bottom: -51px;
+}
+</style>
+<ion-view view-title="Bebidas" >
+  <ion-nav-buttons side="left">
+    <button ng-show="showMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+
+
+  <ion-content >
+
+    <div ng-repeat="cerveja in bebidasTipo">
+      
+      <md-list-item href="#">
+       <p>{{cerveja.tipo_bebida}}</p>
+     </md-list-item>
+
+     <md-divider></md-divider>
+   </div>
+
+
+
+ </ion-content>
+
+</ion-view>

@@ -28,6 +28,17 @@
   background-color: #444;
 }
 
+.icone{
+  width: 26px;
+  height: 26px;
+  margin-top: 8px;
+  margin-right: 8px
+}
+.texto-icones{
+  position: absolute;
+  top: 30px;
+  left: 55px;
+}
 </style>
 
 
@@ -45,7 +56,7 @@
       
     </ion-nav-bar>
 
-    <button id="fab" style="background-color: #009688;" ng-show="mostraCarrinho" class="button button-positive button-fab button-fab-bottom-right">
+    <button id="fab" style="background-color: #009688;" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
       <i class="icon ion-android-cart"></i>
 
     </button>
@@ -61,45 +72,42 @@
        {{usuario.email}}
      </div>
    </ion-header-bar>
-   <ion-content class="stable-bg has-expanded-header">
+   <ion-content class="stable-bg has-expanded-header" style="background-color: white">
     <ion-list>
-      <ion-item nav-clear class="item item-icon-left" ng-click="carregaPosts()" menu-close href="#/app/noticias">
-        <i class="icon ion-home" style="font-size: 22px"></i>
-        Início
+      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/house.svg" class="icone">
+        <xz class="texto-icones">Início</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/beer2.svg" class="icone">
+        <xz class="texto-icones">Bebidas</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/calendar.svg" class="icone">
+        <xz class="texto-icones">Horários e Informações</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/cigarette.svg" style="width: 33px; height: 33px" class="icone">
+        <xz class="texto-icones" style="top: 35px">Tabacaria</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/condom.svg" class="icone">
+        <xz class="texto-icones" style="top: 28px">Picante</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="abreConfiguracao()" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/settings.svg" class="icone">
+        <xz class="texto-icones" style="top: 27px">Configurações</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" ng-click="sair();$ionicGoBack()" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/logout.svg" class="icone">
+        <xz class="texto-icones" style="top: 29px">Sair</xz>
       </ion-item>
 
-      <ion-item nav-clear ng-click="showPopup();" class="item item-icon-left" >
-        <i class="icon ion-calendar" style="font-size: 22px"></i>
-        Horários e Informações
-      </ion-item>
 
-      <ion-item nav-clear ng-click="showPopup();" style="margin-top: 5px" class="item item-icon-left" >
-        <i class="icon ion-beer" style="font-size: 22px"></i>
-        Bebidas
-      </ion-item>
 
-      <ion-item nav-clear ng-click="showPopup();" style='padding-left: 19px;' class="item item-icon-left" >
-       <img src="img/cigarette.png" style="width: 26px; height: 26px; margin-right: 4px">
-       <hxz style='padding-top: 2px'>Tabacaria</hxz>
-     </ion-item>
 
-     <ion-item nav-clear ng-click="showPopup();" style='padding-left: 19px; ' class="item item-icon-left" >
-       <img src="img/chili.png" style="width: 24px; height: 24px; margin-right: 10px">
-       <hxz style='padding-top: 2px'>Picante</hxz>
-     </ion-item>
-
-     <ion-item nav-clear ng-click="showPopup();" class="item item-icon-left" >
-      <i class="icon ion-information-circled" style="font-size: 22px"></i>
-      Sobre
-    </ion-item>
-
-    <ion-item nav-clear ng-click="sair();$ionicGoBack()" menu-close  class="item item-icon-left" >
-      <i class="icon ion-android-exit" style="font-size: 22px"></i>
-      Sair
-    </ion-item>
-
-  </div>
-</ion-item>
+    </div>
+  </ion-item>
 </ion-list>
 </ion-content>
 </ion-side-menu>

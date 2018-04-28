@@ -8,8 +8,8 @@
     $scope.usuario = {};
     $scope.atualizaDados =function(){
 
-       $scope.showMenu = true;
-       setTimeout(function() {
+     $scope.showMenu = true;
+     setTimeout(function() {
         $scope.usuario.email = window.localStorage.getItem("email");
         $scope.usuario.avatar = window.localStorage.getItem("avatar");
         $scope.usuario.nome = window.localStorage.getItem("nome");
@@ -18,14 +18,14 @@
         $scope.mostraCarrinho = true;
 
     }, 500);
-   }
-
-  
+ }
 
 
 
 
-setTimeout(function() {
+
+
+ setTimeout(function() {
 
     if(!$scope.nome){
         $ionicHistory.nextViewOptions({
@@ -38,8 +38,8 @@ setTimeout(function() {
 
 
 
-var navIcons = document.getElementsByClassName('ion-navicon');
-for (var i = 0; i < navIcons.length; i++) {
+ var navIcons = document.getElementsByClassName('ion-navicon');
+ for (var i = 0; i < navIcons.length; i++) {
     navIcons.addEventListener('click', function () {
         this.classList.toggle('active');
     });
@@ -56,7 +56,7 @@ $scope.sair = function(){
     })
     .then((willDelete) => {
         if (willDelete) {
-        $scope.usuario = {};
+            $scope.usuario = {};
             localStorage.clear();
             $ionicHistory.nextViewOptions({
                 disableBack: true
@@ -71,19 +71,36 @@ $scope.sair = function(){
     });
 }
 
-var fab = document.getElementById('fab');
-fab.addEventListener('click', function () {
-        //location.href = 'https://twitter.com/satish_vr2011';
-        window.open('https://www.facebook.com/olhardecinema/', '_blank');
-    });
+$scope.abreCarrinho = function(){
 
+ $ionicModal.fromTemplateUrl('templates/modal/modalCarrinho.html', function ($ionicModal) {
+    $scope.modalCarrinho = $ionicModal;
+    $scope.modalCarrinho.show();
+}, {
+    scope: $scope,
+    animation: 'slide-in-up'
+});
+
+}
+
+$scope.abreConfiguracao = function(){
+
+ $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
+    $scope.modalConfiguracao = $ionicModal;
+    $scope.modalConfiguracao.show();
+}, {
+    scope: $scope,
+    animation: 'slide-in-up'
+});
+
+}
 
 
 
 
 $scope.showPopup = function(){
 
- var alertPopup = $ionicPopup.alert({
+   var alertPopup = $ionicPopup.alert({
     title: 'Olhar de Cinema',
     template: '<div style="text-align: justify">O Olhar de Cinema - Festival Internacional de Curitiba começou suas atividades em 2012 como um evento internacional de cinema independente que acontece todo mês de junho na cidade de Curitiba. <a href="https://olhardecinema.com.br" target="_blank">Saiba mais sobre o festival.'
 });

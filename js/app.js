@@ -29,8 +29,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AppCtrl'
     })
 
-    
-
     .state('app.home', {
         url: '/home',
         views: {
@@ -41,7 +39,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
-    
 
     .state('app.login', {
         url: '/login',
@@ -51,7 +48,54 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 controller: 'loginCtrl'
             }
         }
+    })
+
+    
+
+    .state('app.bebidas', {
+        url: '/bebidas',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/bebidas.html',
+                controller: 'bebidasCtrl'
+            }
+        }
+    })
+
+    .state('app.picante', {
+        url: '/picante',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/picante.html',
+                controller: 'picanteCtrl'
+            }
+        }
+    })
+
+    .state('app.especiais', {
+        url: '/especiais',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/especiais.html',
+                controller: 'especiaisCtrl'
+            }
+        }
+    })
+
+    .state('app.tabacaria', {
+        url: '/tabacaria',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/tabacaria.html',
+                controller: 'tabacariaCtrl'
+            }
+        }
+
     });
+
+
+
+
 
 
 
