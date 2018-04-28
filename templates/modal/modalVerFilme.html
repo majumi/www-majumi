@@ -1,0 +1,66 @@
+
+<meta charset='utf-8'>
+<style>
+.vl {
+	border-left: 3px solid #e76253;
+	height: 40px;
+	margin-right: 20px;
+}
+</style>
+<ion-modal-view ng-controller="lancamentosCtrl " view-title="filmexs">
+
+
+	<ion-header-bar  class="bar bar-assertive  title" style="background-color: #e76253" >
+
+
+		<a class="button  button-clear" style="margin-top: 5px;" ng-click="modalVerFilme.hide()">
+			<i class="icon-small icon ion-ios-arrow-thin-left"></i>
+		</a>
+
+		<h1 class="title text-center" style="text-align: center" >{{filmex.titulo}} <!-- - {{pefilChat}} --></h1>
+
+		<a class="button  button-clear" ng-show="usuarioChatAberto.telefone.length > 0" ng-click="ligar(usuarioChatAberto.telefone)">
+			<i class="icon-small icon ion-ios-telephone-outline"></i>
+		</a>
+
+	</ion-header-bar>
+
+	<ion-content scroll="true" delegate-handle="chatScroll" >
+
+		<img layout-align="center center" src="https://cincogarotasexemplares.files.wordpress.com/2015/10/poster-horizontal.jpg">
+		<md-subheader class="md-no-sticky" style="color: #e76253">Horários de Exibição</md-subheader>
+		<md-divider ></md-divider>
+
+		<md-list-item class="md-3-line" href="#" ng-click="clicou()">
+			
+			<i class="icon-small ion-ios-star-outline" ng-show="!clicado" style="margin-right: 15px; color: #e76253; font-size: 25px"></i>
+			<i class="icon-small ion-star" ng-show="clicado" style="margin-right: 15px; color: #e76253; font-size: 25px"></i>
+
+			<div class="vl"></div>
+			<img style="border-radius: 0px; width: 40px; height: 40px;" ng-src="{{filmex.img}}" class="md-avatar" alt="{{item.who}}" />
+			<div class="md-list-item-text" layout="column">
+				<h3>{{filmex.titulo}}</h3>
+				<h4>{{filmex.horario}}</h4>
+				<h4>{{filmex.categoria}}</h4>
+				
+			</div>
+		</md-list-item>
+		<md-divider ></md-divider>
+		<md-subheader class="md-no-sticky" style="color: #e76253">Sinopse</md-subheader>
+		<md-divider ></md-divider>
+		<p style="text-align: justify; padding: 15px">{{filmex.descricao}}</p>
+
+		<md-divider ></md-divider>
+		<md-subheader class="md-no-sticky" style="color: #e76253">Vendas De Ingressos</md-subheader>
+		<md-divider ></md-divider>
+
+		<p style="text-align: justify; padding: 15px">Acesse: <a href="https://olhardecinema.com.br">Site Olhar de Cinema</a></p>
+
+		<md-divider ></md-divider>
+		<md-subheader class="md-no-sticky" style="color: #e76253">Categorias</md-subheader>
+		<md-divider ></md-divider>
+		<p style="text-align: justify; padding-top: 15px; padding-left: 15px;"><a href="#">{{filmex.categoria}}</a></p>
+		<md-divider ></md-divider>
+	</ion-content>
+
+</ion-modal-view>

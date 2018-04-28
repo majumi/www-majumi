@@ -1,0 +1,58 @@
+
+<style>
+
+
+div{
+  font-family: Song Myung!important;
+}
+.letra{
+
+  font-family: Song Myung!important;
+}
+label{
+  font-family: Song Myung!important;
+}</style>
+<meta charset='utf-8'>
+<ion-modal-view ng-controller="loginCtrl " view-title="Cadastro de Usuário">
+
+
+  <ion-header-bar  class="bar bar-assertive  title" style="background-color: #009688" >
+
+
+    <a class="button  button-clear" style="margin-top: 5px;" ng-click="modalCadastro.hide()">
+      <i class="icon-small icon ion-ios-arrow-thin-left"></i>
+    </a>
+
+    <h1 class="title text-center letra" style="text-align: center" >Cadastro de Usuários <!-- - {{pefilChat}} --></h1>
+
+    <a class="button  button-clear" ng-show="usuarioChatAberto.telefone.length > 0" ng-click="ligar(usuarioChatAberto.telefone)">
+      <i class="icon-small icon ion-ios-telephone-outline"></i>
+    </a>
+
+  </ion-header-bar>
+
+  <ion-content scroll="true" delegate-handle="chatScroll" >
+
+
+
+    <center style="font-family: Yeon Sung; margin-top: 60px; font-size: 35px; font-weight: 600;margin-bottom:40px;color:#009688">Majumi Distribuidora</center>
+    <form id="entrar-form1" class="list" style="padding: 20px; margin-top: 0px">
+      <label class="item item-input" id="entrar-input1" name="nome">
+        <input class="inpux" type="text" ng-model="user.nome" placeholder="Digite seu Nome Completo">
+      </label>
+      <label class="item item-input" id="entrar-input1" name="email">
+        <input class="inpux" type="text" ng-model="user.email" placeholder="Digite seu E-mail">
+      </label>
+
+      <label class="item item-input" id="entrar-input2" name="senha">
+        <input class="inpux" type="password" ng-model="user.senha" placeholder="Digite sua Senha">
+      </label>
+      <label class="item item-input" id="entrar-input2" name="senha">
+        <input class="inpux" type="password" ng-model="user.csenha" placeholder="Confirme sua Senha">
+      </label>
+    </form>
+    <button style="width: 250px; position: absolute;left: 38px; background-color: #009688" id="entrar-button1" ng-click="cadastrar(user)" class="button button-positive button-block"><a class="letra">Cadastrar</a></button><br>
+    
+  </ion-content>
+
+</ion-modal-view>

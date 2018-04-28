@@ -1,0 +1,106 @@
+﻿<style>
+.texto-menu{
+
+
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.texto-email{
+  font-weight: 100;
+  margin-top: 125px;
+  font-size: 11px;
+}
+.popup-buttons .button:last-child{
+  background-color: #444;
+}
+
+.barra{
+  background-color: #000;
+}
+
+.barra-transparente{
+  background-color: #FFF;
+  margin-top: -9px;
+}
+
+.transparente{
+  background-color: #444;
+}
+
+</style>
+
+
+
+
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar  class="bar-assertive">
+      <ion-nav-back-button class="no-text">
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left" >
+        <button  class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+
+      </ion-nav-buttons>
+      
+    </ion-nav-bar>
+
+    <button id="fab" style="background-color: #009688;" ng-show="mostraCarrinho" class="button button-positive button-fab button-fab-bottom-right">
+      <i class="icon ion-android-cart"></i>
+
+    </button>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="{{side}}">
+    <ion-header-bar class="expanded">
+      <img src="{{usuario.avatar}}" class="avatar motion spin fade">
+      <div class="menu-bottom texto-menu">
+       {{usuario.nome}}
+     </div>
+     <div class="menu-bottom texto-email">
+       {{usuario.email}}
+     </div>
+   </ion-header-bar>
+   <ion-content class="stable-bg has-expanded-header">
+    <ion-list>
+      <ion-item nav-clear class="item item-icon-left" ng-click="carregaPosts()" menu-close href="#/app/noticias">
+        <i class="icon ion-home" style="font-size: 22px"></i>
+        Início
+      </ion-item>
+
+      <ion-item nav-clear ng-click="showPopup();" class="item item-icon-left" >
+        <i class="icon ion-calendar" style="font-size: 22px"></i>
+        Horários e Informações
+      </ion-item>
+
+      <ion-item nav-clear ng-click="showPopup();" style="margin-top: 5px" class="item item-icon-left" >
+        <i class="icon ion-beer" style="font-size: 22px"></i>
+        Bebidas
+      </ion-item>
+
+      <ion-item nav-clear ng-click="showPopup();" style='padding-left: 19px;' class="item item-icon-left" >
+       <img src="img/cigarette.png" style="width: 26px; height: 26px; margin-right: 4px">
+       <hxz style='padding-top: 2px'>Tabacaria</hxz>
+     </ion-item>
+
+     <ion-item nav-clear ng-click="showPopup();" style='padding-left: 19px; ' class="item item-icon-left" >
+       <img src="img/chili.png" style="width: 24px; height: 24px; margin-right: 10px">
+       <hxz style='padding-top: 2px'>Picante</hxz>
+     </ion-item>
+
+     <ion-item nav-clear ng-click="showPopup();" class="item item-icon-left" >
+      <i class="icon ion-information-circled" style="font-size: 22px"></i>
+      Sobre
+    </ion-item>
+
+    <ion-item nav-clear ng-click="sair();$ionicGoBack()" menu-close  class="item item-icon-left" >
+      <i class="icon ion-android-exit" style="font-size: 22px"></i>
+      Sair
+    </ion-item>
+
+  </div>
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-side-menu>
+</ion-side-menus>
