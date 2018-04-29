@@ -20,12 +20,37 @@
     }, 500);
  }
 
+$scope.abreBebidas = function ( ){
+
+  $state.go('app.bebidas');
+
+
+}
+
+
+$scope.abreEspeciais = function ( ){
+
+    $state.go('app.especiais');
+
+
+}
+
+$scope.abreTabacaria = function ( ){
+
+
+    $state.go('app.tabacaria');
+}
+
+$scope.abrePicante = function ( ){
+
+
+    $state.go('app.picante');
+}
 
 
 
 
-
- setTimeout(function() {
+setTimeout(function() {
 
     if(!$scope.nome){
         $ionicHistory.nextViewOptions({
@@ -38,8 +63,8 @@
 
 
 
- var navIcons = document.getElementsByClassName('ion-navicon');
- for (var i = 0; i < navIcons.length; i++) {
+var navIcons = document.getElementsByClassName('ion-navicon');
+for (var i = 0; i < navIcons.length; i++) {
     navIcons.addEventListener('click', function () {
         this.classList.toggle('active');
     });

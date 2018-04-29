@@ -88,13 +88,21 @@
 }
 </style>
 <ion-view view-title="Tabacaria" >
-  <ion-nav-buttons side="left">
+  <!-- <ion-nav-buttons side="left">
     <button ng-show="showMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-  </ion-nav-buttons>
+  </ion-nav-buttons> -->
 
 
   <ion-content >
    
+   <div ng-repeat="tabacaria in tabacoTipo">
+      
+      <md-list-item href="#">
+       <p>{{tabacaria.tipo_tabaco}}</p>
+     </md-list-item>
+
+     <md-divider></md-divider>
+   </div>
 
 
   </ion-content>

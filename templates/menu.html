@@ -56,7 +56,7 @@
       
     </ion-nav-bar>
 
-    <button id="fab" style="background-color: #009688;" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
+    <button id="fab" style="background-color: #009688; opacity: 0.4" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
       <i class="icon ion-android-cart"></i>
 
     </button>
@@ -78,21 +78,25 @@
         <img src="img/icones/house.svg" class="icone">
         <xz class="texto-icones">Início</xz>
       </ion-item>
-      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ng-click="abreBebidas()"  menu-close>
         <img src="img/icones/beer2.svg" class="icone">
         <xz class="texto-icones">Bebidas</xz>
       </ion-item>
-      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
-        <img src="img/icones/calendar.svg" class="icone">
-        <xz class="texto-icones">Horários e Informações</xz>
-      </ion-item>
-      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ng-click="abreTabacaria()"  menu-close>
         <img src="img/icones/cigarette.svg" style="width: 33px; height: 33px" class="icone">
         <xz class="texto-icones" style="top: 35px">Tabacaria</xz>
       </ion-item>
-      <ion-item nav-clear class="item" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ng-click="abrePicante()"  menu-close>
         <img src="img/icones/condom.svg" class="icone">
         <xz class="texto-icones" style="top: 28px">Picante</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ng-click="abreEspeciais()"  menu-close>
+        <img src="img/icones/condom.svg" class="icone">
+        <xz class="texto-icones" style="top: 28px">Especiais</xz>
+      </ion-item>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+        <img src="img/icones/calendar.svg" class="icone">
+        <xz class="texto-icones">Horários e Informações</xz>
       </ion-item>
       <ion-item nav-clear class="item" ng-click="abreConfiguracao()" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
         <img src="img/icones/settings.svg" class="icone">
