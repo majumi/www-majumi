@@ -15,12 +15,12 @@
 
 .background-title{
 
-     background-color: rgba(4, 4, 4, 0.75);
-    width: 100%;
-  height: 40px;
-  position: absolute;
-  top: 101px;
-  left: 0px;
+ background-color: rgba(4, 4, 4, 0.75);
+ width: 100%;
+ height: 40px;
+ position: absolute;
+ top: 101px;
+ left: 0px;
 }
 
 .background-title-pequeno{
@@ -75,9 +75,17 @@
   background-size: cover;
 }
 .blockmedio-4{
-  height: 175px;
+  height: 150px;
   background: url('img/especiais.jpg');
   background-size: cover;
+}
+.blockofertas{
+  height: 130px;
+  background: url('img/picante.jpg');
+  background-size: cover;
+  margin-left: 0px;
+  margin-right: 0,1px;
+  width: 98%;
 }
 
 .overlay{
@@ -86,6 +94,13 @@
   z-index: 999;
   margin-bottom: -51px;
 }
+
+.slider {
+  height: 100%;
+}
+
+
+
 </style>
 <ion-view view-title="Majumi" >
   <ion-nav-buttons side="left">
@@ -93,6 +108,52 @@
   </ion-nav-buttons>
   <ion-content >
     <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
+
+
+
+   <!--  <div class="row">
+
+      <ion-slides options="options" slider="slider" auto-play="true">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+          <ion-slide>
+            <div class="blockofertas"><h1>BLUE</h1> 
+              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
+              <div class="background-title" style=" width: 98%!important" > </div>
+              <div class="texto-tiles">Oferta 1</div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="blockofertas"><h1>BLUE</h1>
+              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
+              <div class="background-title" style=" width: 98%!important" > </div>
+              <div class="texto-tiles">Oferta 2</div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="blockofertas"><h1>BLUE</h1> 
+              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
+              <div class="background-title" style=" width: 98%!important" > </div>
+              <div class="texto-tiles">Oferta 3</div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="blockofertas"><h1>BLUE</h1>
+              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
+              <div class="background-title" style=" width: 98%!important" > </div>
+              <div class="texto-tiles">Oferta 4</div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-slides>
+
+    </div> -->
+
+
+
+
+
+
+
     <div class="card blockmedio-1" style=" height: 135px;" ng-click="abreBebidas()">
       <div class="item item-text-wrap">
         <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 100%;    ">
@@ -130,25 +191,25 @@
  </div>
 
 
-    <!-- <div class="row">
+ <div class="row">
 
-      <div class="card blockmedio-2" style=" margin-left: 3px;width: 100%; height: 100px;">
-        <div class="item item-text-wrap">
-          <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;   ">
-          <div class="background-title-pequeno"> </div>
-          <div class="texto-tiles-pequeno">Tabacaria</div>
-        </div>
-      </div>
+  <div class="card blockmedio-2" style=" margin-left: 3px;width: 100%; height: 100px;">
+    <div class="item item-text-wrap">
+      <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;   ">
+      <div class="background-title-pequeno"> </div>
+      <div class="texto-tiles-pequeno">Tabacaria</div>
+    </div>
+  </div>
 
-      <div class="card blockmedio-3" style="width: 100%; height: 100px; margin-right: 3px ">
-        <div class="item item-text-wrap">
-         <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;  ">
-         <div class="background-title-pequeno"> </div>
-         <div class="texto-tiles-pequeno">Picante</div>
-       </div>
-     </div>
-   </div> -->
-   
+  <div class="card blockmedio-3" style="width: 100%; height: 100px; margin-right: 3px ">
+    <div class="item item-text-wrap">
+     <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;  ">
+     <div class="background-title-pequeno"> </div>
+     <div class="texto-tiles-pequeno">Picante</div>
+   </div>
+ </div>
+</div> 
+
 
 
 </ion-content>

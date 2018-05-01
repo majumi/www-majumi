@@ -1,42 +1,44 @@
-﻿app.controller('homeCtrl', function ($scope, $stateParams,$ionicHistory, $state, $ionicModal, ionicMaterialMotion, $stateParams, Utils) {
+﻿app.controller('homeCtrl', function ($scope, $stateParams,$ionicHistory, $ionicSlideBoxDelegate, $state, $ionicModal, ionicMaterialMotion, $stateParams, Utils) {
 
 
 
 
-
+    
     $scope.ativaMenuButton = false;
 
 
 
 
 
-    $scope.abreBebidas = function ( ){
+$scope.abreBebidas = function ( ){
 
-      $state.go('app.bebidas');
+    $state.go('app.bebidas');
+}
 
-
-  }
-
-
-  $scope.abreEspeciais = function ( ){
+$scope.abreEspeciais = function ( ){
 
     $state.go('app.especiais');
-
-
 }
 
 $scope.abreTabacaria = function ( ){
-
 
     $state.go('app.tabacaria');
 }
 
 $scope.abrePicante = function ( ){
-
     
     $state.go('app.picante');
 }
 
+
+
+
+// $scope.options = {
+
+// loop: true,
+// autoplay: true
+
+// };
 
 
 

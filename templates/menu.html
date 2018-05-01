@@ -31,8 +31,8 @@
 .icone{
   width: 26px;
   height: 26px;
-  margin-top: 8px;
-  margin-right: 8px
+  margin-top: 5px;
+  margin-right: 5px
 }
 .texto-icones{
   position: absolute;
@@ -56,10 +56,10 @@
       
     </ion-nav-bar>
 
-    <button id="fab" style="background-color: #009688; opacity: 0.4" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
+    <button id="fab" style="background-color: #009688; opacity: 0.5" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
       <i class="icon ion-android-cart"></i>
-
     </button>
+    
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="{{side}}">
@@ -94,15 +94,15 @@
         <img src="img/icones/favorite.svg" class="icone">
         <xz class="texto-icones" style="top: 28px">Especiais</xz>
       </ion-item>
-      <ion-item nav-clear class="item" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" style="margin-left: 4px;" ng-click="abreInfo()" menu-close>
         <img src="img/icones/calendar.svg" class="icone">
         <xz class="texto-icones">Horários e Informações</xz>
       </ion-item>
-      <ion-item nav-clear class="item" ng-click="abreConfiguracao()" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" ng-click="abreConfiguracao()" style="margin-left: 4px;" ui-sref='app.home' menu-close>
         <img src="img/icones/settings.svg" class="icone">
         <xz class="texto-icones" style="top: 27px">Configurações</xz>
       </ion-item>
-      <ion-item nav-clear class="item" ng-click="sair();$ionicGoBack()" ng-click="" style="margin-left: 4px;" ui-sref='app.home' menu-close>
+      <ion-item nav-clear class="item" ng-click="sair();$ionicGoBack()" style="margin-left: 4px;" ui-sref='app.home' menu-close>
         <img src="img/icones/logout.svg" class="icone">
         <xz class="texto-icones" style="top: 29px">Sair</xz>
       </ion-item>

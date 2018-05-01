@@ -4,6 +4,7 @@
     $scope.showMenu = false;
     
     
+    
     $scope.mostraCarrinho = false;
     $scope.usuario = {};
     $scope.atualizaDados =function(){
@@ -113,6 +114,18 @@ $scope.abreConfiguracao = function(){
  $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
     $scope.modalConfiguracao = $ionicModal;
     $scope.modalConfiguracao.show();
+}, {
+    scope: $scope,
+    animation: 'slide-in-up'
+});
+
+}
+
+$scope.abreInfo = function(){
+
+ $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
+    $scope.modalInfo = $ionicModal;
+    $scope.modalInfo.show();
 }, {
     scope: $scope,
     animation: 'slide-in-up'
