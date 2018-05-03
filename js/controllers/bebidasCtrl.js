@@ -16,6 +16,9 @@ app.controller('bebidasCtrl', function($scope, $stateParams){
 	{'tipo_bebida': 'Sucos'},
 	{'tipo_bebida': 'Energéticos'},
 	{'tipo_bebida': 'Água Mineral'},
+	{'tipo_bebida': 'Água Tônica'},
+	{'tipo_bebida': 'Skol Beats'},
+	{'tipo_bebida': 'Ice'},
 	{'tipo_bebida': 'Refrigerantes'}
 
 	];

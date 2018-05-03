@@ -88,11 +88,28 @@
   width: 98%;
 }
 
+
+.lista{
+  margin-top: -40px;
+}
+
+.produtos-famosos{
+ min-width: 133px;
+ max-width: 170px;
+}
+
 .overlay{
 
   background-color:white;
   z-index: 999;
   margin-bottom: -51px;
+}
+
+.preco{
+  margin-left: 6px!important;
+  margin-top: -8px!important;
+  font-weight: bold!important;
+}
 }
 
 .slider {
@@ -109,50 +126,24 @@
   <ion-content >
     <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
 
+    <div class="row" style="overflow-x: scroll" overflow-scroll="true">
+      <div class="list card produtos-famosos" ng-repeat="item in [1,2,3,4]" style="      margin-bottom: 37px;  border-radius: 5px;">
 
+       <div class="item item-body" style="      border-radius: 10px;  padding: 2px;">
+        <img class="full-image" src="../img/produtos/drink1.jpg" style="width: 130px; height: 100px;">
 
-   <!--  <div class="row">
+        <p style="padding-left: 5px">
+          <h2 class="preco">R$ 50,00</h2>
+        </p>
+        <p style="padding-left: 5px;">
+          <h2 class="preco" style="margin-bottom: -12px; font-size: 12px;    color: gray;text-decoration: line-through;">R$ 50,00</h2>
+        </p>
+      </div>
 
-      <ion-slides options="options" slider="slider" auto-play="true">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
-          <ion-slide>
-            <div class="blockofertas"><h1>BLUE</h1> 
-              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
-              <div class="background-title" style=" width: 98%!important" > </div>
-              <div class="texto-tiles">Oferta 1</div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="blockofertas"><h1>BLUE</h1>
-              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
-              <div class="background-title" style=" width: 98%!important" > </div>
-              <div class="texto-tiles">Oferta 2</div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="blockofertas"><h1>BLUE</h1> 
-              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
-              <div class="background-title" style=" width: 98%!important" > </div>
-              <div class="texto-tiles">Oferta 3</div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="blockofertas"><h1>BLUE</h1>
-              <hr style=" color:black; margin-top: 82px;  position: absolute;   top: 17px;  left: 0px;   width: 98%;    ">
-              <div class="background-title" style=" width: 98%!important" > </div>
-              <div class="texto-tiles">Oferta 4</div>
-            </div>
-          </ion-slide>
-        </ion-slide-box>
-      </ion-slides>
+    </div>
+  </div>
 
-    </div> -->
-
-
-
-
-
-
+  <div class="lista">
 
     <div class="card blockmedio-1" style=" height: 135px;" ng-click="abreBebidas()">
       <div class="item item-text-wrap">
@@ -190,27 +181,7 @@
    </div>
  </div>
 
-
- <div class="row">
-
-  <div class="card blockmedio-2" style=" margin-left: 3px;width: 100%; height: 100px;">
-    <div class="item item-text-wrap">
-      <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;   ">
-      <div class="background-title-pequeno"> </div>
-      <div class="texto-tiles-pequeno">Tabacaria</div>
-    </div>
-  </div>
-
-  <div class="card blockmedio-3" style="width: 100%; height: 100px; margin-right: 3px ">
-    <div class="item item-text-wrap">
-     <hr style="     color:black; margin-top: 82px;    position: absolute;    top: -10px;    left: 0px;    width: 100%;  ">
-     <div class="background-title-pequeno"> </div>
-     <div class="texto-tiles-pequeno">Picante</div>
-   </div>
- </div>
-</div> 
-
-
+</div>
 
 </ion-content>
 
