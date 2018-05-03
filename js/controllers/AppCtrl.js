@@ -57,7 +57,7 @@ setTimeout(function() {
         $ionicHistory.nextViewOptions({
             disableBack: true
         });
-        $state.go('app.login');
+        $state.go('app.home');
     }
 
 }, 1000);
