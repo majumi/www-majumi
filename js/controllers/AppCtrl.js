@@ -3,8 +3,6 @@
     $scope.loginData = {};
     $scope.showMenu = false;
     
-    
-    
     $scope.mostraCarrinho = false;
     $scope.usuario = {};
     $scope.atualizaDados =function(){
@@ -22,28 +20,37 @@
  }
 
 $scope.abreBebidas = function ( ){
-
+$ionicHistory.nextViewOptions({
+            disableBack: false
+        });
   $state.go('app.bebidas');
+
+  
 
 
 }
 
-
 $scope.abreEspeciais = function ( ){
-
+$ionicHistory.nextViewOptions({
+            disableBack: false
+        });
     $state.go('app.especiais');
 
 
 }
 
 $scope.abreTabacaria = function ( ){
-
+$ionicHistory.nextViewOptions({
+            disableBack: false
+        });
 
     $state.go('app.tabacaria');
 }
 
 $scope.abrePicante = function ( ){
-
+$ionicHistory.nextViewOptions({
+            disableBack: false
+        });
 
     $state.go('app.picante');
 }
@@ -57,7 +64,7 @@ setTimeout(function() {
         $ionicHistory.nextViewOptions({
             disableBack: true
         });
-        $state.go('app.home');
+        $state.go('app.login');
     }
 
 }, 1000);
