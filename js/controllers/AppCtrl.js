@@ -1,9 +1,9 @@
 ﻿app.controller('AppCtrl', function ($scope, $ionicModal,$ionicPopup, $ionicSideMenuDelegate, $ionicPopover, $ionicHistory, $state,$timeout) {
     // Form data for the login modal
     $scope.loginData = {};
-    $scope.showMenu = false;
+    $scope.showMenu = true;
     
-    $scope.mostraCarrinho = false;
+    $scope.mostraCarrinho = true;
     $scope.usuario = {};
     $scope.atualizaDados =function(){
 

@@ -105,11 +105,20 @@
   margin-bottom: -51px;
 }
 
+.titulo-oferta{
+  margin: 8px;
+  margin-bottom: -5px;
+  font-size: 15px;
+}
 .preco{
   margin-left: 6px!important;
   margin-top: -8px!important;
   font-weight: bold!important;
 }
+
+
+.carossel-row{
+  margin-left: -4px;
 }
 
 .slider {
@@ -127,8 +136,11 @@
     <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
 
 
+    <div class="row titulo-oferta">
+      Em oferta
+    </div>
     <ion-scroll direction="x" style="overflow-x: overlay;" >
-      <div class="row">
+      <div class="row carossel-row">
         <div ng-repeat="item in [1,2,3,4,5,6,7,8,9,0]" >
           <div class="list card produtos-famosos"  style="      margin-bottom: 37px;  border-radius: 5px;">
 
