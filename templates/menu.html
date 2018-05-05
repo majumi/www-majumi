@@ -49,16 +49,22 @@
     <ion-nav-bar  class="bar-assertive">
       <ion-nav-back-button class="no-text">
       </ion-nav-back-button>
+
       <ion-nav-buttons side="left" >
         <button  class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
 
+      <ion-nav-buttons side="right">
+        <a  class="button button-icon button-clear" style="padding-top: 3px;" ng-show="mostraCarrinho" ng-click="abreCarrinho()">
+          <i class="icon ion-android-cart"></i>
+        </a>
       </ion-nav-buttons>
       
     </ion-nav-bar>
 
-    <button id="fab" style="background-color: #009688; opacity: 0.5" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
+   <!--  <button id="fab" style="background-color: #009688; opacity: 0.5" ng-show="mostraCarrinho" ng-click="abreCarrinho()" class="button button-positive button-fab button-fab-bottom-right">
       <i class="icon ion-android-cart"></i>
-    </button>
+    </button> -->
     
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
