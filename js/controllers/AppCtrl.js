@@ -6,18 +6,43 @@
     $scope.mostraCarrinho = false;
     $scope.usuario = {};
 
+    $scope.carrinho = [];
 
+
+
+    function atualizaDadosizaTotal(){
+        $scope.total = 0;
+        $scope.carrinho.forEach(function(value,item){
+
+            $scope.total += parseFloat(value.preco.replace(",","."));
+           
+
+        });
+
+    }
+
+    $scope.adicionaCarrinho = function(produto){
+
+        
+        $scope.carrinho.push(produto);
+      
+        atualizaDadosizaTotal()
+
+    }
+
+    $scope.removeCarrinho = function(index){
+        $scope.carrinho.splice(index, 1);
+        atualizaDadosizaTotal()
+    }
 
     
 
 
 
-
-
     $scope.atualizaDados =function(){
 
-       $scope.showMenu = true;
-       setTimeout(function() {
+     $scope.showMenu = true;
+     setTimeout(function() {
         $scope.usuario.email = window.localStorage.getItem("email");
         $scope.usuario.avatar = window.localStorage.getItem("avatar");
         $scope.usuario.nome = window.localStorage.getItem("nome");
@@ -26,9 +51,9 @@
         $scope.mostraCarrinho = true;
 
     }, 500);
-   }
+ }
 
-   $scope.abreBebidas = function ( ){
+ $scope.abreBebidas = function ( ){
     $ionicHistory.nextViewOptions({
         disableBack: false
     });
@@ -72,7 +97,7 @@ $scope.abreHome = function ( ){
 
     ProdutoService.selecionaProdutos().success(function(result){
         $scope.listaProdutos = result;
-        console.log(result);
+
 
         $scope.listaProdutos.forEach(function(value,item){
             value.promocao = (parseFloat(value.preco) - (parseFloat(value.preco) * parseFloat(value.promo))).toFixed(2);
@@ -115,7 +140,6 @@ for (var i = 0; i < navIcons.length; i++) {
 }
 $scope.sair = function(){
 
-    console.log($scope.showMenu);
     swal({
         title: "Tem certeza?",
         text: "Você deseja sair da sua conta?",
@@ -142,7 +166,10 @@ $scope.sair = function(){
 
 $scope.abreCarrinho = function(){
 
-   $ionicModal.fromTemplateUrl('templates/modal/modalCarrinho.html', function ($ionicModal) {
+
+
+
+ $ionicModal.fromTemplateUrl('templates/modal/modalCarrinho.html', function ($ionicModal) {
     $scope.modalCarrinho = $ionicModal;
     $scope.modalCarrinho.show();
 }, {
@@ -154,7 +181,7 @@ $scope.abreCarrinho = function(){
 
 $scope.abreConfiguracao = function(){
 
-   $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
+ $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
     $scope.modalConfiguracao = $ionicModal;
     $scope.modalConfiguracao.show();
 }, {
@@ -166,7 +193,7 @@ $scope.abreConfiguracao = function(){
 
 $scope.abreInfo = function(){
 
-   $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
+ $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
     $scope.modalInfo = $ionicModal;
     $scope.modalInfo.show();
 }, {
@@ -181,7 +208,7 @@ $scope.abreInfo = function(){
 
 $scope.showPopup = function(){
 
- var alertPopup = $ionicPopup.alert({
+   var alertPopup = $ionicPopup.alert({
     title: 'Olhar de Cinema',
     template: '<div style="text-align: justify">O Olhar de Cinema - Festival Internacional de Curitiba começou suas atividades em 2012 como um evento internacional de cinema independente que acontece todo mês de junho na cidade de Curitiba. <a href="https://olhardecinema.com.br" target="_blank">Saiba mais sobre o festival.'
 });

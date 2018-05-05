@@ -63,6 +63,9 @@
 		</a>
 
 		<h1 class="title text-center" style="text-align: center" >{{categoria.nome}} <!-- - {{pefilChat}} --></h1>
+		<div style="    position: absolute;
+		right: 20px;
+		top: 12px;">Total: R$ {{total}}</div>
 
 
 	</ion-header-bar>
@@ -71,16 +74,18 @@
 
 		<div class="list">
 
-			<a class="item item-thumbnail-left" style="padding-bottom: 5px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaProdutos">
+			<a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaCategoriaProdutos">
 				<img src="{{produto.img}}">
 				<h2>{{produto.nome}}</h2>
-				<p style="white-space: normal; font-size: 12px">{{produto.descricao}}</p>
-				<h style="      font-weight: bold;font-size: 16px;  position: absolute;	bottom: 0px; 	right: 20px;">R$ {{produto.promocao}}</h3>
-			</a>
+				<h4>{{produto.nome_categoria}}</h4>
+
+				<h style="      font-weight: bold;font-size: 16px;  position: absolute;	top:9px; 	right: 20px;">R$ {{produto.preco}}</h3>
+					<md-button ng-click="adicionaCarrinho(produto)" style="          position: absolute;    bottom: -80px;    right: -15px;    font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;;">Adicionar carrinho</md-button>
+				</a>
 
 
-		</div>
+			</div>
 
-	</ion-content>
+		</ion-content>
 
-</ion-modal-view>
+	</ion-modal-view>

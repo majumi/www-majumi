@@ -8,12 +8,12 @@ app.controller('bebidasCtrl', function($scope, $stateParams,$ionicModal, Produto
 
 	});
 
-
+	$scope.listaCategoriaProdutos = [];
 	$scope.abreListaProdutos = function(categoria){
-
 		$scope.categoria = categoria;
-				ProdutoService.selecionaCategoriaProduto({'id_categoria': categoria.id_categoria}).success(function(result){
-			
+		ProdutoService.selecionaCategoriaProduto({'id_categoria': categoria.id_categoria}).success(function(result){
+			console.log(result);
+			$scope.listaCategoriaProdutos = result;
 			$ionicModal.fromTemplateUrl('templates/modal/modalListaProdutos.html', function ($ionicModal) {
 				$scope.modalListaProdutos = $ionicModal;
 				$scope.modalListaProdutos.show();
