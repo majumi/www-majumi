@@ -33,6 +33,10 @@ app.factory("ProdutoService", function ($http, Utils) {
         return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasPicantes.php', params);
 
     } 
+
+    this.selecionaCategoriasEspeciais = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasEspeciais.php', params);
+    } 
   
 
     return this;
