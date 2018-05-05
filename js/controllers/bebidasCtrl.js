@@ -1,4 +1,4 @@
-app.controller('bebidasCtrl', function($scope, $stateParams, ProdutoService){
+app.controller('bebidasCtrl', function($scope, $stateParams,$ionicModal, ProdutoService){
 
 	$scope.listaCategoria = [];
 
@@ -6,11 +6,26 @@ app.controller('bebidasCtrl', function($scope, $stateParams, ProdutoService){
 		console.log(result);
 		$scope.listaCategoria = result;
 
-
-
 	});
 
 
+	$scope.abreListaProdutos = function(categoria){
 
+		$scope.categoria = categoria;
+				ProdutoService.selecionaCategoriaProduto({'id_categoria': categoria.id_categoria}).success(function(result){
+			
+			$ionicModal.fromTemplateUrl('templates/modal/modalListaProdutos.html', function ($ionicModal) {
+				$scope.modalListaProdutos = $ionicModal;
+				$scope.modalListaProdutos.show();
+			}, {
+				scope: $scope,
+				animation: 'slide-in-up'
+			});
+
+
+
+		});
+
+	}
 
 });

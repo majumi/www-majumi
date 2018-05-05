@@ -37,7 +37,11 @@ app.factory("ProdutoService", function ($http, Utils) {
     this.selecionaCategoriasEspeciais = function (params) {
         return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasEspeciais.php', params);
     } 
-  
+
+    this.selecionaCategoriaProduto = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriaProduto.php', params);
+    } 
+
 
     return this;
 
@@ -54,36 +58,36 @@ app.factory("ProdutoService", function ($http, Utils) {
 
 
 
-    this.BASE_URL = BASE;
+   this.BASE_URL = BASE;
 
-    this.BASE_URL_SERVICE = this.BASE_URL + "web_service/";
+   this.BASE_URL_SERVICE = this.BASE_URL + "web_service/";
 
-    this.BASE_URL_UPLOAD = this.BASE_URL_SERVICE+"upload/";
+   this.BASE_URL_UPLOAD = this.BASE_URL_SERVICE+"upload/";
 
    
-    this.UPLOAD_URL = {
+   this.UPLOAD_URL = {
 
-      
-        "POST":         { "ORIG": this.BASE_URL_UPLOAD+"post/"}      
-        
+
+    "POST":         { "ORIG": this.BASE_URL_UPLOAD+"post/"}      
+
+}
+
+
+
+this.headerConfig = {
+    headers: {
+        'Content-Type': undefined
+    },
+    transformRequest: angular.identity
+};
+
+this.isEmpty = function (str) {
+    if (!str || str.length == 0) {
+        return true;
     }
+    return false;
+}
 
-
-    
-    this.headerConfig = {
-        headers: {
-            'Content-Type': undefined
-        },
-        transformRequest: angular.identity
-    };
-
-    this.isEmpty = function (str) {
-        if (!str || str.length == 0) {
-            return true;
-        }
-        return false;
-    }
-
-    return this;
+return this;
 
 })

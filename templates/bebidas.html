@@ -88,9 +88,7 @@
 }
 </style>
 <ion-view view-title="Bebidas" >
-  <!-- <ion-nav-buttons side="left">
-    <button ng-show="showMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-  </ion-nav-buttons> -->
+
 
   
 
@@ -98,7 +96,7 @@
 
     <div ng-repeat="categoria in listaCategoria">
       
-      <md-list-item href="#">
+      <md-list-item  ng-click="abreListaProdutos(categoria)">
        <p>{{categoria.nome}}</p>
        <hr>
      </md-list-item>

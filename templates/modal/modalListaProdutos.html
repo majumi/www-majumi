@@ -1,0 +1,86 @@
+<style>
+
+
+.card:active{
+	/*background: rgb(0,0,0);*/
+	opacity: 0.8;
+
+}
+
+.lista{
+	margin-top: -40px;
+}
+
+.produtos-famosos{
+	min-width: 133px;
+	max-width: 170px;
+}
+
+.titulo-produto{
+	margin-top: 3px!important;
+	margin-bottom: -14px!important;
+	margin-left: 5px!important;
+	font-size: 12px!important;
+}
+
+.overlay{
+
+	background-color:white;
+	z-index: 999;
+	margin-bottom: -51px;
+}
+
+.titulo-oferta{
+	margin: 8px;
+	margin-bottom: -5px;
+	font-size: 15px;
+}
+.preco{
+	margin-left: 6px!important;
+	margin-top: -8px!important;
+	font-weight: bold!important;
+}
+
+.desconto{
+	font-size: 10px;
+	position: absolute;
+	right: 10px;
+	margin-top: 1px;
+}
+
+
+
+</style>
+<meta charset='utf-8'>
+<ion-modal-view ng-controller="homeCtrl " view-title="Notícias">
+
+
+	<ion-header-bar  class="bar bar-assertive  title" style="background-color: #009688" >
+
+
+		<a class="button  button-clear"  ng-click="modalListaProdutos.hide()">
+			<i class="icon-small icon ion-ios-arrow-thin-left"></i>
+		</a>
+
+		<h1 class="title text-center" style="text-align: center" >{{categoria.nome}} <!-- - {{pefilChat}} --></h1>
+
+
+	</ion-header-bar>
+
+	<ion-content >
+
+		<div class="list">
+
+			<a class="item item-thumbnail-left" style="padding-bottom: 5px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaProdutos">
+				<img src="{{produto.img}}">
+				<h2>{{produto.nome}}</h2>
+				<p style="white-space: normal; font-size: 12px">{{produto.descricao}}</p>
+				<h style="      font-weight: bold;font-size: 16px;  position: absolute;	bottom: 0px; 	right: 20px;">R$ {{produto.promocao}}</h3>
+			</a>
+
+
+		</div>
+
+	</ion-content>
+
+</ion-modal-view>
