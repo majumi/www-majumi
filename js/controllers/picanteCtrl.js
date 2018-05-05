@@ -1,15 +1,14 @@
-app.controller('picanteCtrl', function($scope, $stateParams){
+app.controller('picanteCtrl', function($scope, $stateParams, ProdutoService){
 
 
- $scope.picanteTipo = [
-	{'tipo_picante': 'Preservativos'},
-	{'tipo_picante': 'Lubrificantes'},
-	{'tipo_picante': 'Cordas'},
-	{'tipo_picante': 'Maquinas de Tortura'}
-	
-	];
+	$scope.listaCategoria = [];
+
+	ProdutoService.selecionaCategoriasPicantes().success(function(result){
+		console.log(result);
+		$scope.listaCategoria = result;
 
 
 
+	});
 
 });

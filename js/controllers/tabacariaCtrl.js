@@ -1,17 +1,14 @@
-app.controller('tabacariaCtrl', function($scope, $stateParams){
+app.controller('tabacariaCtrl', function($scope, $stateParams, ProdutoService){
+
+	$scope.listaCategoria = [];
+
+	ProdutoService.selecionaCategoriasTabacaria().success(function(result){
+		console.log(result);
+		$scope.listaCategoria = result;
 
 
-$scope.tabacoTipo = [
-	{'tipo_tabaco': 'Cigarros'},
-	{'tipo_tabaco': 'Narguile'},
-	{'tipo_tabaco': 'Palheiro'},
-	{'tipo_tabaco': 'Essências'},
-	{'tipo_tabaco': 'Carvão'},
-	{'tipo_tabaco': 'Sedas'},
-	{'tipo_tabaco': 'Isqueiro'}
 
-	];
-
+	});
 
 
 });

@@ -14,12 +14,35 @@ app.factory("LoginService", function ($http, Utils) {
 
 })
 
+app.factory("ProdutoService", function ($http, Utils) {
+
+    this.selecionaProdutos = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaProdutos.php', params);
+    }
+
+    this.selecionaCategoriasBebidas = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasBebidas.php', params);
+    }
+
+    this.selecionaCategoriasTabacaria = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasTabacaria.php', params);
+    } 
+
+    this.selecionaCategoriasPicantes = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriasPicantes.php', params);
+    } 
+  
+
+    return this;
+
+})
+
 
 .factory("Utils", function () {
 
 
     // producao
-    var BASE = "http://localhost/majumi/www/";
+    var BASE = "http://indexpublicidade.com.br/";
 
    // web_service localhost
 
