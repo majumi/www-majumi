@@ -1,0 +1,205 @@
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung" rel="stylesheet">
+<style>
+.post {
+
+  margin-top: -22px;
+
+}
+
+.pattern{
+  background-image: url('../img/pattern.png');
+  background-repeat: repeat;
+  z-index: 0;
+  background-color: #FFF;
+}
+
+.background-title{
+
+ background-color: rgba(4, 4, 4, 0.75);
+ width: 100%;
+ height: 40px;
+ position: absolute;
+ top: 101px;
+ left: 0px;
+}
+
+.background-title-pequeno{
+
+  background-color: rgba(4, 4, 4, 0.75);
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 74px;
+  left: 0px;
+}
+
+.texto-tiles-pequeno{
+ position: absolute;
+ top: 77px;
+ left: 14px;
+ bottom: 0px;
+ font-family: Yeon Sung!important;
+ color: #FFF;
+ font-size: 15px;
+}
+
+.texto-tiles{
+  position: absolute;
+  top: 107px;
+  left: 14px;
+  bottom: 0px;
+  font-family: Yeon Sung!important;
+  color: #FFF;
+  font-size: 20px
+}
+
+.card:active{
+  /*background: rgb(0,0,0);*/
+  opacity: 0.8;
+  
+}
+
+.blockmedio-1{
+  height: 175px;
+  background: url('img/blocktile.jpg');
+  background-size: cover;
+}
+.blockmedio-2{
+  height: 175px;
+  background: url('img/tabacaria.jpg');
+  background-size: cover;
+}
+.blockmedio-3{
+  height: 175px;
+  background: url('img/picante.jpg');
+  background-size: cover;
+}
+.blockmedio-4{
+  height: 150px;
+  background: url('img/especiais.jpg');
+  background-size: cover;
+}
+.blockofertas{
+  height: 130px;
+  background: url('img/picante.jpg');
+  background-size: cover;
+  margin-left: 0px;
+  margin-right: 0,1px;
+  width: 98%;
+}
+
+
+.lista{
+  margin-top: -40px;
+}
+
+.produtos-famosos{
+ min-width: 133px;
+ max-width: 170px;
+}
+
+.titulo-produto{
+  margin-top: 3px!important;
+  margin-bottom: -14px!important;
+  margin-left: 5px!important;
+  font-size: 12px!important;
+}
+
+.overlay{
+
+  background-color:white;
+  z-index: 999;
+  margin-bottom: -51px;
+}
+
+.titulo-oferta{
+  margin: 8px;
+  margin-bottom: -5px;
+  font-size: 15px;
+}
+.preco{
+  margin-left: 6px!important;
+  margin-top: -8px!important;
+  font-weight: bold!important;
+}
+
+.desconto{
+  font-size: 10px;
+  position: absolute;
+  right: 10px;
+  margin-top: 1px;
+}
+.carossel-row{
+  margin-left: -4px;
+}
+
+.slider {
+  height: 100%;
+}
+
+.tamanhoTotal{
+  height: 10%;
+  overflow: scroll;
+  max-height: 446px;
+  overflow-x: hidden;
+
+}
+
+
+</style>
+<ion-view view-title="Majumi" >
+ <!--  <ion-nav-buttons side="left">
+    <button ng-show="showMenu" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons> -->
+  <ion-content >
+    <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
+
+
+    <div class="row titulo-oferta">
+     Produtos Adicionados
+   </div>
+
+   <div class="tamanhoTotal">
+
+    <div class="list">
+
+      <div ng-show="carrinho.length == 0" style="    padding: 30px;    text-align: center;    margin-top: 192px;"> Você não tem nenhum produto adicionado ao seu carrinho ainda. =(</div>
+      <a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in carrinho track by $index">
+        <img src="{{produto.img}}" style="object-fit: contain;">
+        <h2>{{produto.nome}}</h2>
+        <h4>{{produto.nome_categoria}}</h4>
+
+        <h3 style="      font-weight: bold;font-size: 16px;  position: absolute; top:9px;  right: 20px;">R$ {{produto.preco}}</h3>
+
+        <md-button ng-click="removeCarrinho($index)" style="      position: absolute;       right: 0px;  font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;;">Remover carrinho</md-button>
+      </a>
+
+
+    </div>
+  </div>
+  <div style="    height: 99px;" ng-show="carrinho.length != 0" class="item item-divider">
+    <p style="    position: absolute;
+    right: 23px;">Total: R$ {{total.toFixed(2)}}</p>
+    <a>Informações:</a>
+    <md-button ng-click="" style="font-size: 10px;
+    border: solid 1px #c3c1c1;
+    color: #c3c1c1;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+
+    right: 5px;">Confirmar compra</md-button>
+    <md-button ng-click="limpaCarrinho()" ng-show="carrinho.length != 0"  style="font-size: 10px;
+    border: solid 1px #c3c1c1;
+    color: #c3c1c1;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+
+    left: 5px;">Limpar carrinho</md-button>
+  </div>
+ 
+
+</ion-content>
+
+</ion-view>

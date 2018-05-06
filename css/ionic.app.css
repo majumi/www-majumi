@@ -3085,7 +3085,7 @@ a:hover {
  */
 a {
   -webkit-user-drag: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent; }
   a[href]:hover {
     cursor: pointer; }
@@ -3322,7 +3322,7 @@ body,
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3709,7 +3709,7 @@ a.subdued {
   z-index: 11;
   width: 100%;
   height: 100%;
-  background-color: transparent; }
+  background-color: rgba(0, 0, 0, 0); }
   .action-sheet-backdrop.active {
     background-color: rgba(0, 0, 0, 0.4); }
 
@@ -5338,7 +5338,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: transparent; }
+  background-color: rgba(0, 0, 0, 0); }
   .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.1); }
 
@@ -5461,7 +5461,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   left: 0;
   bottom: 0;
   right: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -7810,8 +7810,8 @@ input:checked + .checkbox-icon:after {
     width: 0;
     height: 0;
     border-top: 5px solid;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
     color: #999;
     content: "";
     pointer-events: none; }
@@ -8668,7 +8668,7 @@ a.button {
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-drag: none;
   -ms-touch-action: none;

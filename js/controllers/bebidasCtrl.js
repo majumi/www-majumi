@@ -13,7 +13,11 @@ app.controller('bebidasCtrl', function($scope, $stateParams,$ionicModal, Produto
 		$scope.categoria = categoria;
 		ProdutoService.selecionaCategoriaProduto({'id_categoria': categoria.id_categoria}).success(function(result){
 			console.log(result);
+
 			$scope.listaCategoriaProdutos = result;
+			$scope.listaCategoriaProdutos.forEach(function(value,item){
+				value.qtde = 0;
+			});
 			$ionicModal.fromTemplateUrl('templates/modal/modalListaProdutos.html', function ($ionicModal) {
 				$scope.modalListaProdutos = $ionicModal;
 				$scope.modalListaProdutos.show();

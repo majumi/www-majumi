@@ -21,9 +21,7 @@
 
 		<div class="list">
 
-			<div ng-show="carrinho.length == 0" style="    padding: 30px;
-    text-align: center;
-    margin-top: 192px;"> Você não tem nenhum produto adicionado ao seu carrinho ainda. =(</div>
+			<div ng-show="carrinho.length == 0" style="    padding: 30px;    text-align: center;    margin-top: 192px;"> Você não tem nenhum produto adicionado ao seu carrinho ainda. =(</div>
 			<a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in carrinho">
 				<img src="{{produto.img}}">
 				<h2>{{produto.nome}}</h2>

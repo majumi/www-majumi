@@ -51,6 +51,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.carrinho', {
+        url: '/carrinho',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/carrinho.html',
+                controller: 'carrinhoCtrl'
+            }
+        }
+    })
+
     
 
     .state('app.bebidas', {
