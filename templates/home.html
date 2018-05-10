@@ -154,7 +154,7 @@
     <ion-scroll direction="x" style="overflow-x: overlay;" >
       <div class="row carossel-row">
         <div ng-repeat="produto in listaProdutos" >
-          <div class="list card produtos-famosos"  style="      margin-bottom: 37px;  border-radius: 5px;">
+          <div class="list card produtos-famosos" ng-click="adicionaOferta(produto)" style="      margin-bottom: 37px;  border-radius: 5px;">
 
            <div class="item item-body" style="      border-radius: 10px;  padding: 2px;">
             <img class="full-image" src="{{produto.img}}" style="width: 130px; height: 100px; object-fit: contain;">

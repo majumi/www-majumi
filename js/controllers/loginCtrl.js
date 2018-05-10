@@ -97,8 +97,9 @@ app.controller('loginCtrl', function ($scope, $stateParams, $state,$ionicModal,$
 			LoginService.cadastro({'nome': user.nome, 'email': user.email, 'senha': user.senha}).success(function(result){
 
 				console.log(result);
+				$scope.user = [];
 				swal("Parabéns!", "Cadastrado com sucesso", "success");
-				// $scope.modalCadastro.hide();
+				$scope.modalCadastro.hide();
 				$scope.carregando = false;
 			});
 

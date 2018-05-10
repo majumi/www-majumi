@@ -97,7 +97,7 @@
 
     <div ng-repeat="especiais in listaCategoria">
       
-      <md-list-item href="#">
+      <md-list-item  ng-click="abreListaProdutos(especiais)">
        <p>{{especiais.nome}}</p>
      </md-list-item>
 

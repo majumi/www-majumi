@@ -48,7 +48,13 @@
 	margin-top: 1px;
 }
 
+.xqdle .row{
+	    width: 40%!important;
+	position: absolute!important;
+	right: 0px!important;
+	top: 0px!important;
 
+}
 
 </style>
 <meta charset='utf-8'>
@@ -63,17 +69,17 @@
 		</a>
 
 		<h1 class="title text-center" style="text-align: center" >{{categoria.nome}} <!-- - {{pefilChat}} --></h1>
-		<div style="    position: absolute;
-		right: 20px;
-		top: 12px;">Total: R$ {{total.toFixed(2)}}</div>
+		
 
 
 	</ion-header-bar>
 
-	<ion-content >
+		<div class="bar xqdle " style="        position: absolute;    top: 0px;    right: 20px;   text-align: center;text-align: center;    font-size: 17px;    margin-top: 43px;" ><div class="row">Total: R$ {{total.toFixed(2)}}</div></div>
 
-		<div class="list">
+		<hr>
+	<ion-content scroll="true" class="has-header" >
 
+		<div class="list" style="    margin-top: 40px;">
 			<a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaCategoriaProdutos">
 				<img src="{{produto.img}}" style="object-fit: contain;">
 				<h2>{{produto.nome}}</h2>
@@ -82,9 +88,9 @@
 				<h style="      font-weight: bold;font-size: 16px;  position: absolute;	top:9px; 	right: 20px;">R$ {{produto.preco}}</h3>
 
 					
-					<i class="icon ion-plus" ng-click="produto.qtde = produto.qtde + 1" style="    position: absolute;top: 65px;	right: 125px;"></i>
-					<p  style="    position: absolute;top: 65px;	    right: 150px;">{{produto.qtde}}</p>
-					<i class="icon ion-minus" ng-click="produto.qtde = produto.qtde - 1" style="    position: absolute;top: 65px;	right: 175px;"></i>
+					<i class="icon ion-plus" ng-click="produto.qtde = produto.qtde + 1" style="     font-size: 23px;    position: absolute;top: 65px;	right: 125px;"></i>
+					<p  style="    position: absolute;top: 65px;font-size: 17px;   right: 152px;  ">{{produto.qtde}}</p>
+					<i class="icon ion-minus" ng-click="produto.qtde = produto.qtde - 1" style="      font-size: 23px;  position: absolute;top: 65px;	right: 175px;"></i>
 					
 					<md-button ng-click="adicionaCarrinho(produto)" style="          position: absolute;    bottom: -80px;    right: -15px;    font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;;">Adicionar carrinho</md-button>
 				</a>

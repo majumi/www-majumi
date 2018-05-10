@@ -15,8 +15,8 @@ app.controller('bebidasCtrl', function($scope, $stateParams,$ionicModal, Produto
 			console.log(result);
 
 			$scope.listaCategoriaProdutos = result;
-			$scope.listaCategoriaProdutos.forEach(function(value,item){
-				value.qtde = 0;
+			$scope.listaCategoriaProdutos.forEach(function(produto,item){
+				produto.qtde = 1;
 			});
 			$ionicModal.fromTemplateUrl('templates/modal/modalListaProdutos.html', function ($ionicModal) {
 				$scope.modalListaProdutos = $ionicModal;
