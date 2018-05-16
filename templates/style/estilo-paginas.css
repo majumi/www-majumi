@@ -1,0 +1,50 @@
+.post {
+
+  margin-top: -22px;
+
+}
+
+div{
+  font-family: Song Myung!important;
+}
+
+label{
+  font-family: Song Myung!important;
+}
+
+.inpux{
+ margin-left: -12px!important;
+ padding: 24px!important;
+ border: solid 1px #ddd!important;
+ border-radius: 6px!important;
+}
+
+.labelletra{
+  color:#FFF;
+}
+
+.btn{
+  background-color: rgb(0, 0, 0, 0)!important;
+  border: solid 1px white!important;
+  width: 280px;
+  border-radius: 6px!important;
+}
+
+.btn:active{
+  background-color:white!important;
+  color: #000!important;
+}
+
+.bg1{
+  background-image: url(../img/bg/background_login.png)!important;
+  background-size: cover;
+  background-position: center center;
+  max-width: 400px;
+}
+
+.bg2{
+  background-image: url(../img/bg/background_login2.png)!important;
+  background-size: cover;
+  background-position: center center;
+  max-width: 400px;
+}

@@ -42,7 +42,9 @@ app.factory("ProdutoService", function ($http, Utils) {
         return $http.post(Utils.BASE_URL_SERVICE + 'produtos/selecionaCategoriaProduto.php', params);
     } 
 
-
+    this.adicionaPedido = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'produtos/adicionaPedido.php', params);
+    }
     return this;
 
 })

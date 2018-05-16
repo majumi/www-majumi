@@ -26,12 +26,12 @@ label{
 }
 
 .btn{
+  font-family: Song Myung!important;
+  margin-top: 25px;
   background-color: rgb(0, 0, 0, 0)!important;
-  border: solid 1px white!important;
-  width: 250px;
-  position: absolute;
-  left: 36px;
-  margin-left: 13px;
+  border: solid 1px #ddd!important;
+  width: 280px;
+  border-radius: 6px!important;
 }
 
 .btn:active{
@@ -52,8 +52,10 @@ label{
   background-position: center center;
   max-width: 400px;
 }
-
 </style>
+
+
+
 <ion-view ng-controller="loginCtrl"> <md-progress-linear style="margin-top: 15px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
   <ion-content class="bg1" style="margin-top: 0px;">
 
@@ -61,16 +63,17 @@ label{
     
     <form id="entrar-form1" class="list" style="padding: 20px; margin-top: 50px">
       <label class="item item-input" id="entrar-input1" name="email">
-        
+
         <input style="color:#FFF" class="inpux" type="text" ng-model="user.email" placeholder="Digite seu E-mail">
       </label>
       <label class="item item-input" id="entrar-input2" name="senha">
         <input style="color:#FFF" class="inpux" type="password" ng-model="user.senha" placeholder="Digite sua Senha">
       </label>
+      <div class="text-center">
+        <button ng-click="login(user.email, user.senha)" class="button button-positive btn">Entrar</button>
+      </div>
     </form>
 
-
-    <button  id="entrar-button1" ng-click="login(user.email, user.senha)" class="button button-positive text-center btn " style="border-radius: 10px"><div>Entrar</div></button><br>
 
     <div style="text-align: center;margin-top: 40px; color: #FFF; font-size: 15px" ng-click="exibeCadastro()">Entrar usando</div>
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

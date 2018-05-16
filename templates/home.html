@@ -148,11 +148,11 @@
     <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
 
 
-    <div class="row titulo-oferta">
+    <div ng-if="listaProdutos.length > 0" class="row titulo-oferta">
       Em oferta
     </div>
     <ion-scroll direction="x" style="overflow-x: overlay;" >
-      <div class="row carossel-row">
+      <div ng-if="listaProdutos.length > 0" class="row carossel-row animated slideInRight">
         <div ng-repeat="produto in listaProdutos" >
           <div class="list card produtos-famosos" ng-click="adicionaOferta(produto)" style="      margin-bottom: 37px;  border-radius: 5px;">
 
@@ -175,7 +175,7 @@
   </ion-scroll>
 
 
-  <div class="lista">
+  <div class="lista animated slideInUp">
 
     <div class="card blockmedio-1" style=" height: 135px;" ng-click="abreBebidas()">
       <div class="item item-text-wrap">

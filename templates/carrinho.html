@@ -159,29 +159,32 @@
      Produtos Adicionados
    </div>
 
-   <div class="tamanhoTotal">
+   
 
-    <div class="list">
+   <div class="list animated slideInRight" >
 
-      <div ng-show="carrinho.length == 0" style="    padding: 30px;    text-align: center;    margin-top: 192px;"> Você não tem nenhum produto adicionado ao seu carrinho ainda. =(</div>
-      <a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in carrinho track by $index">
-        <img src="{{produto.img}}" style="object-fit: contain;">
-        <h2>{{produto.nome}}</h2>
-        <h4>{{produto.nome_categoria}}</h4>
+    <div ng-show="carrinho.length == 0" style="    padding: 30px;    text-align: center;    margin-top: 192px;"> Você não tem nenhum produto adicionado ao seu carrinho ainda <c style="font-size:25px">😥</c></div>
+    <a class="item item-thumbnail-left" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in carrinho track by $index">
+      <img src="{{produto.img}}" style="object-fit: contain;">
+      <h2>{{produto.nome}}</h2>
+      <h4>{{produto.nome_categoria}}</h4>
 
-        <h3 style="      font-weight: bold;font-size: 16px;  position: absolute; top:9px;  right: 20px;">R$ {{produto.preco}}</h3>
+      <h3 ng-show="produto.oferta == 1" style="      font-weight: bold;font-size: 16px;  position: absolute; top:9px;  right: 20px;">R$ {{produto.promocao_porc}}</h3>
+      <h3 ng-show="produto.oferta == 0" style="      font-weight: bold;font-size: 16px;  position: absolute; top:9px;  right: 20px;">R$ {{produto.preco}}</h3>
+      <h3 ng-show="produto.qtde_total > 1" style="  color:gray;    font-weight: bold;font-size: 16px;  position: absolute; top:23px;  right: 20px;">Qtde: {{produto.qtde_total}}</h3>
 
-        <md-button ng-click="removeCarrinho($index)" style="      position: absolute;       right: 0px;  font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;;">Remover carrinho</md-button>
-      </a>
+
+      <md-button ng-click="removeCarrinho(produto,$index)" style="      position: absolute;       right: 0px;  font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;">Remover carrinho</md-button>
+    </a>
 
 
-    </div>
+    
   </div>
-  <div style="    height: 99px;" ng-show="carrinho.length != 0" class="item item-divider">
+  <div ng-show="carrinho.length != 0" style="    height: 99px;" class="item item-divider">
     <p style="    position: absolute;
     right: 23px;">Total: R$ {{total.toFixed(2)}}</p>
     <a>Informações:</a>
-    <md-button ng-click="" style="font-size: 10px;
+    <md-button ng-click="finalizarCompra()" style="font-size: 10px;
     border: solid 1px #c3c1c1;
     color: #c3c1c1;
     border-radius: 5px;
@@ -198,7 +201,7 @@
 
     left: 5px;">Limpar carrinho</md-button>
   </div>
- 
+
 
 </ion-content>
 

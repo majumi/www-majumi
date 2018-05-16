@@ -1,4 +1,27 @@
+<style>
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
 
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+</style>
 <meta charset='utf-8'>
 <ion-modal-view ng-controller="homeCtrl " view-title="Notícias">
 
@@ -18,14 +41,43 @@
 
 	</ion-header-bar>
 
-	<ion-content scroll="true" delegate-handle="chatScroll" >
+	<ion-content scroll="true" style="padding: 10px" delegate-handle="chatScroll" >
 
-		
-		<p style="text-align: center;margin-top: 50%;">
-			Horário e Informações ainda não definido
-		</p>
+		<table id="customers" >
+			<tr>
+				<th>Dias da semana</th>
+				<th>Horário</th>				
+			</tr>
+			<tr>
+				<td>Segunda-Feira</td>
+				<td>15:00 - 05:00</td>				
+			</tr>
+			<tr>
+				<td>Terça-Feira</td>
+				<td>15:00 - 05:00</td>
+			</tr>
+			<tr>
+				<td>Quarta-Feira</td>
+				<td>15:00 - 05:00</td>
+			</tr>
+			<tr>
+				<td>Quinta-Feira</td>
+				<td>15:00 - 05:00</td>	
+			</tr>
+			<tr>
+				<td>Sexta-Feira</td>
+				<td><b>Qualquer horário</b></td>
+			</tr>
+			<tr>
+				<td>Sábado</td>
+				<td><b>Qualquer horário</b></td>
+			</tr>
+			<tr>
+				<td>Sábado</td>
+				<td><b>Qualquer horário</b></td>
+			</tr>
 
-
+		</table>
 
 
 
