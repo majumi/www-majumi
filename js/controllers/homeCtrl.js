@@ -16,9 +16,9 @@
             console.log(result);
 
             $scope.listaProdutos.forEach(function(value,item){
-               value.promocao = (parseFloat(value.preco) - (parseFloat(value.preco) * parseFloat(value.promo))).toFixed(2);
-               value.promocao = value.promocao.toString();
-               value.promocao  = value.promocao.replace(".", ",");
+               value.promocao_porc = (parseFloat(value.preco) - (parseFloat(value.preco) * parseFloat(value.oferta_porc))).toFixed(2);
+               value.promocao_porc = value.promocao_porc.toString();
+               value.promocao_porc = value.promocao_porc.replace(".", ",");
 
            });
 

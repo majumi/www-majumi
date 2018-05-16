@@ -160,10 +160,10 @@
             <img class="full-image" src="{{produto.img}}" style="width: 130px; height: 100px; object-fit: contain;">
             <p class="titulo-produto">{{produto.nome}}</p>
             <p style="padding-left: 5px">
-              <h2 class="preco">R$ {{produto.promocao}} </h2>
+              <h2 class="preco">R$ {{produto.promocao_porc}} </h2>
             </p>
             <p style="padding-left: 5px;">
-              <h2 class="preco" style="margin-bottom: -12px; font-size: 12px;    color: gray;text-decoration: line-through;">R$ {{produto.preco}}<span class="desconto">{{produto.promo * 100}}% OFF</span></h2>
+              <h2 class="preco" style="margin-bottom: -12px; font-size: 12px;    color: gray;text-decoration: line-through;">R$ {{produto.preco}}<span class="desconto">{{produto.oferta_porc * 100}}% OFF</span></h2>
             </p>
           </div>
         </div>

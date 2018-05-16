@@ -5,7 +5,7 @@
     
     $scope.mostraCarrinho = false;
     $scope.usuario = {};
-
+    $scope.total = 0;
     $scope.carrinho = [];
 
 
@@ -25,7 +25,7 @@
             atualizaDadosizaTotal();
             swal('Adicionado',produto.nome, 'success');
 
-            swal("Produtos removidos com sucesso", {
+            swal("Produtos adicionado com sucesso", {
               icon: "success",
           });
             
@@ -49,69 +49,62 @@
 
           if (confirma) {
 
-           swal("Produtos removidos com sucesso", {
+             swal("Produtos removidos com sucesso", {
               icon: "success",
           });
-           $scope.carrinho = [];
-           $scope.total = 0;
-           $scope.$apply();
-       } else {
+             $scope.carrinho = [];
+             $scope.total = 0;
+             $scope.$apply();
+         } else {
 
-       }
-   });
+         }
+     });
     }
-    function atualizaDadosizaTotal(){
-        $scope.total = 0;
-        $scope.carrinho.forEach(function(value,item){
 
-            $scope.total += parseFloat(value.preco.replace(",","."));
-            
-
-        });
-
-    }
 
     $scope.adicionaCarrinho = function(produto){
+        if(produto.oferta == 1){
+            var result = (produto.qtde * (parseFloat(produto.preco) - (parseFloat(produto.preco) * parseFloat(produto.oferta_porc))));
+            $scope.total = $scope.total + result;
+            $scope.carrinho.push(produto);
+            console.log($scope.carrinho);
 
+        }else if(produto.oferta == 0){
+            var result = (produto.qtde * parseFloat(produto.preco)  );
+            $scope.total = $scope.total + result;
+            $scope.carrinho.push(produto);
+            console.log($scope.carrinho);
 
-        if(produto.qtde == 0){
-           swal('', 'Adicione a quantidade que deseja', 'warning');
-       }else if(produto.qtde < 0){
-        swal('Erro', 'Quantidade não pode ser negativa', 'error');
-    }else{
-        for(i=1; i<=produto.qtde; i++){
-            $scope.carrinho.push(produto);               
+        }else{
+            swal('Erro', 'Algum erro ocorreu', 'error');
         }
-        atualizaDadosizaTotal();
-        swal('Adicionado', "("+produto.qtde+ "x " + produto.nome+ ")", 'success');
+
     }
 
-}
-
-$scope.removeCarrinho = function(index){
-    $scope.carrinho.splice(index, 1);
-    atualizaDadosizaTotal()
-}
+    $scope.removeCarrinho = function(index){
+        $scope.carrinho.splice(index, 1);
+        atualizaDadosizaTotal()
+    }
 
 
 
 
 
-$scope.atualizaDados =function(){
+    $scope.atualizaDados =function(){
 
- $scope.showMenu = true;
- setTimeout(function() {
-    $scope.usuario.email = window.localStorage.getItem("email");
-    $scope.usuario.avatar = window.localStorage.getItem("avatar");
-    $scope.usuario.nome = window.localStorage.getItem("nome");
-    $scope.usuario.id_usuario = window.localStorage.getItem("id_usuario");
+       $scope.showMenu = true;
+       setTimeout(function() {
+        $scope.usuario.email = window.localStorage.getItem("email");
+        $scope.usuario.avatar = window.localStorage.getItem("avatar");
+        $scope.usuario.nome = window.localStorage.getItem("nome");
+        $scope.usuario.id_usuario = window.localStorage.getItem("id_usuario");
 
-    $scope.mostraCarrinho = true;
+        $scope.mostraCarrinho = true;
 
-}, 500);
-}
+    }, 500);
+   }
 
-$scope.abreBebidas = function ( ){
+   $scope.abreBebidas = function ( ){
     $ionicHistory.nextViewOptions({
         disableBack: false
     });
@@ -230,7 +223,7 @@ $scope.abreCarrinho = function(){
 
 $scope.abreConfiguracao = function(){
 
- $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
+   $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
     $scope.modalConfiguracao = $ionicModal;
     $scope.modalConfiguracao.show();
 }, {
@@ -242,7 +235,7 @@ $scope.abreConfiguracao = function(){
 
 $scope.abreInfo = function(){
 
- $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
+   $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
     $scope.modalInfo = $ionicModal;
     $scope.modalInfo.show();
 }, {
@@ -257,7 +250,7 @@ $scope.abreInfo = function(){
 
 $scope.showPopup = function(){
 
-   var alertPopup = $ionicPopup.alert({
+ var alertPopup = $ionicPopup.alert({
     title: 'Olhar de Cinema',
     template: '<div style="text-align: justify">O Olhar de Cinema - Festival Internacional de Curitiba começou suas atividades em 2012 como um evento internacional de cinema independente que acontece todo mês de junho na cidade de Curitiba. <a href="https://olhardecinema.com.br" target="_blank">Saiba mais sobre o festival.'
 });
