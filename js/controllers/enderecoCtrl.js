@@ -1,14 +1,20 @@
-app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParams,$http,$ionicModal, ProdutoService){
+app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParams,$http,$ionicModal, ProdutoService,$cordovaGeolocation){
 	$scope.mostraCarrinho = false;
 	$scope.cep = "";
 	$scope.jaTemEndereco = false;
 	$scope.someform = false;
 	$scope.endereco = {};
+	$scope.pagamento = "CX";
 
 	$scope.carrinho = JSON.stringify($stateParams.carrinho);
 	$scope.total = $stateParams.total;
 	
 	
+	$scope.atualizaview = function(){
+		$scope.$apply();
+	}
+
+
 	if(window.localStorage.getItem("endereco") != null){
 		$scope.jaTemEndereco = true;
 		$scope.endereco = JSON.parse(window.localStorage.getItem("endereco")); 
@@ -20,6 +26,29 @@ app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParam
 			$scope.endereco = result;
 			$scope.endereco.numero = "";
 			$scope.someform = true;
+		});
+	}
+
+
+
+	$scope.pegaLocalizacao = function(){
+		var posOptions = {timeout: 10000, enableHighAccuracy: false};
+		$cordovaGeolocation
+		.getCurrentPosition(posOptions)
+
+		.then(function (position) {
+			var lat  = position.coords.latitude
+			var long = position.coords.longitude
+			console.log(lat + '   ' + long)
+			
+			$http.post('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&key=AIzaSyCPz3YQIGwsXn7QT2UYyDjf70mJzIL5QMw').success(function (result) {
+				console.log(result);
+				var cep = result.results[1].address_components[0].long_name;
+				$scope.buscaCep(cep);
+			});
+
+		}, function(err) {
+			console.log(err)
 		});
 	}
 
@@ -36,6 +65,7 @@ app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParam
 			});
 
 			$scope.mostraCarrinho = true;
+			
 
 		});
 
@@ -60,10 +90,12 @@ app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParam
 		}else
 		if(endereco.numero == ""){
 			swal('','Campo numero não pode ser vazio', 'warning');
+		}else{
+			window.localStorage.setItem("endereco", JSON.stringify($scope.endereco));
+			$scope.jaTemEndereco = true;
+			$scope.someform = false;
+			
 		}
 
-		window.localStorage.setItem("endereco", JSON.stringify($scope.endereco));
-		$scope.jaTemEndereco = true;
-		$scope.someform = false;
 	}
 });

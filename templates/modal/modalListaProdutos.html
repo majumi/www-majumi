@@ -61,20 +61,28 @@
 <ion-modal-view ng-controller="homeCtrl " view-title="Notícias">
 
 
-	<ion-header-bar  class="bar bar-assertive  title" style="background-color: #009688" >
+	<ion-nav-bar  class="bar-assertive">
+		<ion-nav-buttons side="right">
+			<a  class="button button-icon button-clear" style="padding-top: 3px;" ng-show="mostraCarrinho" ng-click="modalListaProdutos.hide(); abreCarrinho()">
+				<i class="icon ion-android-cart"></i>
+			</a>
+		</ion-nav-buttons>
+
+		<ion-nav-buttons side="left" >
+
+			<a class="button back-button buttons no-text button-clear header-item" style="margin-top: 4px;" ng-click="modalListaProdutos.hide()">
+				<i class="icon ion-ios-arrow-back"></i>
+			</a>
+
+			<a style="    margin-left: 85px;   margin-top: 13px;">{{categoria.nome}}</a>
+		</ion-nav-buttons>
+	</ion-nav-bar>
 
 
-		<a class="button  button-clear"  ng-click="modalListaProdutos.hide()">
-			<i class="icon-small icon ion-ios-arrow-thin-left"></i>
-		</a>
-
-		<h1 class="title text-center" style="text-align: center" >{{categoria.nome}} <!-- - {{pefilChat}} --></h1>
-		
 
 
-	</ion-header-bar>
 
-	<div class="bar xqdle " style="        position: absolute;    top: 0px;    right: 20px;   text-align: center;text-align: center;    font-size: 17px;    margin-top: 43px;" ><div class="row">Total: R$ {{total.toFixed(2)}}</div></div>
+	<div class="bar xqdle " style="        position: absolute;    top: 0px;    right: 20px;   text-align: center;text-align: center;    font-size: 17px;    margin-top: 43px;" ><div class="row" style="    margin-top: 8px;">Total: R$ {{total.toFixed(2)}}</div></div>
 
 	<hr>
 	<ion-content scroll="true" class="has-header" >
@@ -82,29 +90,29 @@
 		<div class="list" class="animated bounceInDown" style="    margin-top: 40px;">
 
 
-				<!-- produto em promoc -->
+			<!-- produto em promoc -->
 
 
-				<a class="item item-thumbnail-left" ng-show="produto.oferta == 1" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaCategoriaProdutos">
-					<img src="{{produto.img}}" style="object-fit: contain;">
-					<h2>{{produto.nome}}</h2>
-					<h4>{{produto.nome_categoria}}</h4>
+			<a class="item item-thumbnail-left" ng-show="produto.oferta == 1" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaCategoriaProdutos">
+				<img src="{{produto.img}}" style="object-fit: contain;">
+				<h2>{{produto.nome}}</h2>
+				<h4>{{produto.nome_categoria}}</h4>
 
-					<h3 style="      font-weight: bold;font-size: 16px;  position: absolute;	top:9px; 	right: 20px;">R$ {{produto.promocao_porc}}</h3>
-					<h3 style="     color: gray;text-decoration: line-through; font-weight: bold;font-size: 12px;  position: absolute;	top:35px; 	right: 20px;">R$ {{produto.preco}}</h3>
+				<h3 style="      font-weight: bold;font-size: 16px;  position: absolute;	top:9px; 	right: 20px;">R$ {{produto.promocao_porc}}</h3>
+				<h3 style="     color: gray;text-decoration: line-through; font-weight: bold;font-size: 12px;  position: absolute;	top:35px; 	right: 20px;">R$ {{produto.preco}}</h3>
 
 
-					<i class="icon ion-plus" ng-click="produto.qtde = produto.qtde + 1" style=" font-size: 23px;position: absolute;
-    top: 65px;    right: 142px;"></i>
-					<p  style="position: absolute;    top: 65px;    font-size: 17px;    right: 172px;">{{produto.qtde}}</p>
-					<i class="icon ion-minus" ng-click="produto.qtde = produto.qtde - 1" style="     font-size: 23px; position: absolute;   top: 65px;   right: 193px;"></i>
+				<i class="icon ion-plus" ng-click="produto.qtde = produto.qtde + 1" style=" font-size: 23px;position: absolute;
+				top: 65px;    right: 142px;"></i>
+				<p  style="position: absolute;    top: 65px;    font-size: 17px;    right: 172px;">{{produto.qtde}}</p>
+				<i class="icon ion-minus" ng-click="produto.qtde = produto.qtde - 1" style="     font-size: 23px; position: absolute;   top: 65px;   right: 193px;"></i>
 
-					<md-button ng-click="adicionaCarrinho(produto)" style="position: absolute;    bottom: 0px;  right: 6px;    font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;">Adicionar carrinho</md-button>
-				</a>
+				<md-button ng-click="adicionaCarrinho(produto)" style="position: absolute;    bottom: 0px;  right: 6px;    font-size: 10px;    border: solid 1px #c3c1c1;    color: #c3c1c1;    border-radius: 5px;">Adicionar carrinho</md-button>
+			</a>
 
-				<!-- produto normal -->
+			<!-- produto normal -->
 
-				
+
 			<a  class="item item-thumbnail-left" ng-show="produto.oferta == 0" style="padding-bottom: 60px!important; border-bottom: solid 1px  #f3f2f2!important;" ng-repeat="produto in listaCategoriaProdutos">
 				<img src="{{produto.img}}" style="object-fit: contain;">
 				<h2>{{produto.nome}}</h2>

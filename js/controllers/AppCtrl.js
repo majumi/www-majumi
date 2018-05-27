@@ -10,8 +10,8 @@
 
     $scope.atualizaDados =function(){
 
-     $scope.showMenu = true;
-     setTimeout(function() {
+       $scope.showMenu = true;
+       setTimeout(function() {
         $scope.usuario.email = window.localStorage.getItem("email");
         $scope.usuario.avatar = window.localStorage.getItem("avatar");
         $scope.usuario.nome = window.localStorage.getItem("nome");
@@ -20,10 +20,10 @@
         $scope.mostraCarrinho = true;
 
     }, 500);
- }
+   }
 
 
- $scope.adicionaOferta = function(produto){
+   $scope.adicionaOferta = function(produto){
 
     swal({
         title: "",
@@ -64,16 +64,16 @@ $scope.limpaCarrinho = function(){
 
       if (confirma) {
 
-       swal("Produtos removidos com sucesso", {
+         swal("Produtos removidos com sucesso", {
           icon: "success",
       });
-       $scope.carrinho = [];
-       $scope.total = 0;
-       $scope.$apply();
-   } else {
+         $scope.carrinho = [];
+         $scope.total = 0;
+         $scope.$apply();
+     } else {
 
-   }
-});
+     }
+ });
 }
 
 
@@ -106,7 +106,7 @@ $scope.adicionaCarrinho = function(produto){
 
     }else if(produto.oferta == 0){
 
-       if($scope.carrinho.includes(produto)){
+     if($scope.carrinho.includes(produto)){
         var index = $scope.carrinho.indexOf(produto);
         $scope.carrinho[index].qtde_total += produto.qtde;
         $scope.total += produto.qtde * parseFloat(produto.preco);
@@ -267,7 +267,7 @@ $scope.abreCarrinho = function(){
 
 $scope.abreConfiguracao = function(){
 
- $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
+   $ionicModal.fromTemplateUrl('templates/modal/modalConfiguracao.html', function ($ionicModal) {
     $scope.modalConfiguracao = $ionicModal;
     $scope.modalConfiguracao.show();
 }, {
@@ -277,9 +277,12 @@ $scope.abreConfiguracao = function(){
 
 }
 
+
+
+
 $scope.abreInfo = function(){
 
- $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
+   $ionicModal.fromTemplateUrl('templates/modal/modalInfo.html', function ($ionicModal) {
     $scope.modalInfo = $ionicModal;
     $scope.modalInfo.show();
 }, {
@@ -290,19 +293,13 @@ $scope.abreInfo = function(){
 }
 
 $scope.abrePedidos = function(){
-  $ionicModal.fromTemplateUrl('templates/modal/modalPedidos.html', function ($ionicModal) {
-    $scope.modalPedidos = $ionicModal;
-    $scope.modalPedidos.show();
-}, {
-    scope: $scope,
-    animation: 'slide-in-up'
-});
+    $state.go('app.pedidos');
 }
 
 
 $scope.showPopup = function(){
 
-   var alertPopup = $ionicPopup.alert({
+ var alertPopup = $ionicPopup.alert({
     title: 'Olhar de Cinema',
     template: '<div style="text-align: justify">O Olhar de Cinema - Festival Internacional de Curitiba começou suas atividades em 2012 como um evento internacional de cinema independente que acontece todo mês de junho na cidade de Curitiba. <a href="https://olhardecinema.com.br" target="_blank">Saiba mais sobre o festival.'
 });

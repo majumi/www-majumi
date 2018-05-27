@@ -20,176 +20,198 @@
   color: #000!important;
 }
 
+.radio-icon{
+  margin-top: 10px;
+} 
+/*disable-pointer-events icon ion-checkmark*/
+
 
 </style>
 <ion-view view-title="Confirmar compra" >
   <ion-content >
-    <md-progress-linear style="margin-top: 0px" ng-show="carregando" md-mode="indeterminate"></md-progress-linear>
+    <md-progress-linear style="margin-top: 0px" ng-if="carregando" md-mode="indeterminate"></md-progress-linear>
 
 
-    <div class="list animated slideInUp" ng-show="jaTemEndereco">
+    <div class="list animated slideInUp" ng-if="jaTemEndereco">
       <div class="list card">
-        <div class="row">
-          <x class="item item-icon-left">
-            <div class="col-4">
-              <i class="icon ion-home"></i>
-            </div>
-            <div class="col-4">
-              <p>Logradouro: {{endereco.logradouro}}</p>
-
-              <p>Complemento: {{endereco.complemento}}</p>
-
-
-
-              <p>Bairro: {{endereco.bairro}}</p>
-
-
-
-              <p>CEP: {{endereco.cep}}</p>
-
-
-
-              <p>Cidade:{{endereco.localidade}}</p>
-
-
-
-              <p>Estado:{{endereco.uf}}</p>
-            </div>
-            <div class="col-4">
-              <ion-checkbox style="    position: absolute;  top: 54px;       right: -285px;"  ng-model="selecionado"></ion-checkbox>
-            </div>
-          </x>
-        </div>
-      </div>
-      <div class="card animated slideInRight" ng-show="jaTemEndereco">
         <div class="item item-divider">
-          Métodos de pagamento
-        </div>
-        <div class="item item-text-wrap">
-          
-         <md-radio-group ng-model="pagamento">
-          <div class="row">
-            <div class="col-md-6">
-              <md-radio-button value="CC" class="md-primary">Cartão de crédito</md-radio-button>
-            </div>
-            <div class="col-md-6">
-              <img src="img/bandeirascartoes.png" style="box-shadow: none!important;margin-left: 15px;margin-top: -5px;max-width: 132px">
-            </div>
+         Endereço Atual:
+       </div>
+       <div class="row">
+        <x class="item item-icon-left">
+          <div class="col-4">
+            <i class="icon ion-home"></i>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <md-radio-button value="CD"> Cartão de débito </md-radio-button>
-            </div>
-            <div class="col-md-6">
-              <img src="img/bandeirascartoes.png" style="box-shadow: none!important;margin-left: 15px;margin-top: -5px;max-width: 132px">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <md-radio-button value="D">No dinheiro</md-radio-button>
-            </div>
-            <div class="col-md-6">
-            </div>
-          </div>
-        </md-radio-group>
+          <div class="col-4">
+            <p>Logradouro: {{endereco.logradouro}}</p>
 
+            <p>Complemento: {{endereco.complemento}}</p>
+            <p>Numero: {{endereco.numero}}</p>
+
+
+
+            <p>Bairro: {{endereco.bairro}}</p>
+
+
+
+            <p>CEP: {{endereco.cep}}</p>
+
+
+
+            <p>Cidade:{{endereco.localidade}}</p>
+
+
+
+            <p>Estado:{{endereco.uf}}</p>
+          </div>
+        </x>
       </div>
+    </div>
+    <div class="list card">
+      
+      <ion-radio ng-model="selecionado" ng-value="'B'" ng-click="pegaLocalizacao()">
+
+
+       <a href="#" class="item item-icon-left">
+        <i class="icon ion-location"></i>
+        Usar minha localização atual
+      </a>
+    </ion-radio>
+  </div>
+
+  <div ng-if="someform == true" class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-left titulo-oferta" style="color: gray">
+         Rua
+       </div>
+
+
+       <input style="color:black" class="inpux" type="text" ng-model="endereco.logradouro" placeholder="Digite seu CEP">
+
+     </div>
+     <div class="col-md-6">
+      <div class="text-left titulo-oferta" style="color: gray">
+        Bairro
+      </div>
+
+
+      <input style="color:black" class="inpux" type="text" ng-model="endereco.bairro" placeholder="Informe seu bairro">
 
     </div>
-
   </div>
-
-  <div ng-show="selecionado && pagamento != null" class="text-center animated slideInRight" >
-    <button ng-click="finalizaCompra(endereco,pagamento)" class="button button-positive btn">Confirmar endereço</button>
-  </div>
-
-
-  <div ng-show="someform == false && !jaTemEndereco" class="animated slideInRight">
-    <div class="text-center titulo-oferta" style="color: gray">
-     Informe seu CEP
-   </div>
-
-
-   <div style="margin-left: 21px;">
-
-    <input style="color:black; width: 100%" class="inpux" type="text" ng-model="cep" placeholder="Digite seu CEP">
-
-  </div>
-  <div class="text-center">
-    <button ng-click="buscaCep(cep)" class="button button-positive btn">Procurar endereço</button>
-  </div>
-</div>
-
-
-<div ng-show="someform == true" class="animated fadeIn">
   <div class="row">
     <div class="col-md-6">
       <div class="text-left titulo-oferta" style="color: gray">
-       Rua
-     </div>
+        Cidade
+      </div>
 
 
-     <input style="color:black" class="inpux" type="text" ng-model="endereco.logradouro" placeholder="Digite seu CEP">
+      <input style="color:black" class="inpux" type="text" ng-model="endereco.localidade" placeholder="Informe sua cidade">
 
-   </div>
-   <div class="col-md-6">
-    <div class="text-left titulo-oferta" style="color: gray">
-      Bairro
+    </div>
+    <div class="col-md-6">
+      <div class="text-left titulo-oferta" style="color: gray">
+        Estado
+      </div>
+
+
+      <input style="color:black" class="inpux" type="text" ng-model="endereco.uf" placeholder="Informe seu Estado">
+
     </div>
 
 
-    <input style="color:black" class="inpux" type="text" ng-model="endereco.bairro" placeholder="Informe seu bairro">
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-left titulo-oferta" style="color: gray">
+        Complemento
+      </div>
 
+      <input style="color:black" class="inpux" type="text" ng-model="endereco.complemento" placeholder="Informe Qd. Lt.">
+
+    </div>
+    <div class="col-md-6">
+      <div class="text-left titulo-oferta" style="color: gray">
+        Número
+      </div>
+
+      <input style="color:black" class="inpux" type="text" ng-model="endereco.numero" placeholder="0 se não possuir">
+
+
+    </div>
+
+
+
+  </div>
+  <div class="text-center">
+    <button ng-click="salvarEndereco(endereco)" class="button button-positive btn">Atualizar endereço</button>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="text-left titulo-oferta" style="color: gray">
-      Cidade
-    </div>
 
 
-    <input style="color:black" class="inpux" type="text" ng-model="endereco.localidade" placeholder="Informe sua cidade">
-
+<div class="card animated slideInRight" ng-if="jaTemEndereco">
+  <div class="item item-divider">
+    Métodos de pagamento
   </div>
-  <div class="col-md-6">
-    <div class="text-left titulo-oferta" style="color: gray">
-      Estado
+  <div class="item item-text-wrap">
+
+   <md-radio-group ng-model="pagamento">
+    <div class="row">
+      <div class="col-md-6">
+        <md-radio-button value="CC" >Cartão de crédito</md-radio-button>
+      </div>
+      <div class="col-md-6">
+        <img src="img/bandeirascartoes.png" style="box-shadow: none!important;margin-left: 15px;margin-top: -5px;max-width: 132px">
+      </div>
     </div>
-
-
-    <input style="color:black" class="inpux" type="text" ng-model="endereco.uf" placeholder="Informe seu Estado">
-
-  </div>
-
+    <div class="row">
+      <div class="col-md-6">
+        <md-radio-button value="CD"> Cartão de débito </md-radio-button>
+      </div>
+      <div class="col-md-6">
+        <img src="img/bandeirascartoes.png" style="box-shadow: none!important;margin-left: 15px;margin-top: -5px;max-width: 132px">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <md-radio-button value="D">No dinheiro</md-radio-button>
+        
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+  </md-radio-group>
 
 </div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="text-left titulo-oferta" style="color: gray">
-      Complemento
-    </div>
 
-    <input style="color:black" class="inpux" type="text" ng-model="endereco.complemento" placeholder="Informe Qd. Lt.">
+</div>
+<div class="text-center " >
+  <button  style="    margin-top: 0px;" ng-click="finalizaCompra(endereco,pagamento)" class="button btn">Confirmar</button>
+</div>
 
-  </div>
-  <div class="col-md-6">
-    <div class="text-left titulo-oferta" style="color: gray">
-      Número
-    </div>
-
-    <input style="color:black" class="inpux" type="text" ng-model="endereco.numero" placeholder="0 se não possuir">
+</div>
 
 
-  </div>
+
+<div ng-if="someform == false && !jaTemEndereco" class="animated slideInRight">
+  <div class="text-center titulo-oferta" style="color: gray">
+   Informe seu CEP
+ </div>
 
 
+ <div style="margin-left: 21px;">
+
+  <input style="color:black; width: 100%" class="inpux" type="text" ng-model="cep" placeholder="Digite seu CEP">
 
 </div>
 <div class="text-center">
-  <button ng-click="salvarEndereco(endereco)" class="button button-positive btn">Cadastrar endereço</button>
+  <button ng-click="buscaCep(cep)" class="button button-positive btn">Procurar endereço</button>
 </div>
 </div>
+
+
+
 </ion-content>
 
 </ion-view>
