@@ -20,6 +20,24 @@
   color: #000!important;
 }
 
+.status{
+  position: absolute;
+  z-index: 9999;
+  right: 15px;
+  background-color: #F44336;
+  padding: 10px;
+  border-radius: 50%;
+  margin-top: 3px;
+  font-size: 29px;
+}
+
+.header-card{
+  border-bottom: solid 1px gray!important;
+  background-color: #009688!important;
+  color: white!important;
+  padding-top: 0px!important;
+}
+
 .radio-icon{
   margin-top: 10px;
 } 
@@ -31,7 +49,18 @@
   <ion-content >
     <md-progress-linear style="margin-top: 0px" ng-if="carregando" md-mode="indeterminate"></md-progress-linear>
 
-
+    <div class="card " ng-repeat="pedido in listaPedidos">
+      <div class="status"><i class="icon-small icon ion-clock" style="color:white"></i></div>
+      <div class="item item-divider header-card">
+        Pedido {{pedido.id_pedido}} <a style="position: absolute; right: 66px;">{{pedido.data.split(" ")[0] | date:'dd/MM/yyyy'}} {{pedido.data.split(" ")[1]}}</a>
+      </div>
+      <div class="item item-text-wrap">
+        {{pedido.pedido.nome}}
+        <a ng-show="pedido.pagamento == 'CC'"> Pagamento: Cartão de Crédito</a>
+        <a ng-show="pedido.pagamento == 'CD'"> Pagamento: Cartão de Débito</a>
+        <a ng-show="pedido.pagamento == 'D'"> Pagamento: Dinheiro</a>
+      </div>
+    </div>
   </ion-content>
 
 </ion-view>

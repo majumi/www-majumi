@@ -175,6 +175,14 @@ $scope.abreTabacaria = function ( ){
     $state.go('app.tabacaria');
 }
 
+$scope.abrePedidos = function(){
+   $ionicHistory.nextViewOptions({
+    disableBack: false
+});
+   $state.go('app.pedidos');
+}
+
+
 $scope.abrePicante = function ( ){
     $ionicHistory.nextViewOptions({
         disableBack: false
@@ -182,6 +190,8 @@ $scope.abrePicante = function ( ){
 
     $state.go('app.picante');
 }
+
+
 
 $scope.finalizarCompra =function(){
     $state.go('app.endereco', {'carrinho': $scope.carrinho,'total': $scope.total});
@@ -292,9 +302,6 @@ $scope.abreInfo = function(){
 
 }
 
-$scope.abrePedidos = function(){
-    $state.go('app.pedidos');
-}
 
 
 $scope.showPopup = function(){

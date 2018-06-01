@@ -155,8 +155,8 @@
     Métodos de pagamento
   </div>
   <div class="item item-text-wrap">
-
-   <md-radio-group ng-model="pagamento">
+    {{pagamentox}}
+   <md-radio-group ng-model="pagamentox">
     <div class="row">
       <div class="col-md-6">
         <md-radio-button value="CC" >Cartão de crédito</md-radio-button>
@@ -187,7 +187,7 @@
 
 </div>
 <div class="text-center " >
-  <button  style="    margin-top: 0px;" ng-click="finalizaCompra(endereco,pagamento)" class="button btn">Confirmar</button>
+  <button  style="    margin-top: 0px;" ng-click="finalizaCompra(endereco,pagamentox)" class="button btn">Confirmar</button>
 </div>
 
 </div>

@@ -14,6 +14,18 @@ app.factory("LoginService", function ($http, Utils) {
 
 })
 
+app.factory("PedidosService", function ($http, Utils) {
+
+    this.selecionaPedido = function (params) {
+        return $http.post(Utils.BASE_URL_SERVICE + 'pedidos/selecionaPedido.php', params);
+    } 
+
+
+
+    return this;
+
+})
+
 app.factory("ProdutoService", function ($http, Utils) {
 
     this.selecionaProdutos = function (params) {

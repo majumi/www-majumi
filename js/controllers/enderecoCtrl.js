@@ -4,7 +4,8 @@ app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParam
 	$scope.jaTemEndereco = false;
 	$scope.someform = false;
 	$scope.endereco = {};
-	$scope.pagamento = "CX";
+	$scope.pagamentox = "";
+	
 
 	$scope.carrinho = JSON.stringify($stateParams.carrinho);
 	$scope.total = $stateParams.total;
@@ -52,11 +53,12 @@ app.controller('enderecoCtrl', function($scope,$state,$ionicHistory, $stateParam
 		});
 	}
 
-	$scope.finalizaCompra = function(endereco,pagamento){
+	$scope.finalizaCompra = function(endereco,pagamentox){
 		var enderecoString = JSON.stringify(endereco);
+		console.log($scope.pagamentox);
 
 
-		ProdutoService.adicionaPedido({'pedido': $scope.carrinho, 'preco': $scope.total, 'id_usuario': $scope.usuario.id_usuario, 'endereco': enderecoString,'pagamento': pagamento}).success(function(result){
+		ProdutoService.adicionaPedido({'pedido': $scope.carrinho, 'preco': $scope.total, 'id_usuario': $scope.usuario.id_usuario, 'endereco': enderecoString,'pagamento': $scope.pagamentox}).success(function(result){
 			console.log(result);
 			swal('','Pedido registrado com sucesso, aguarde enquanto analisamos o seu pedido','success');
 			$state.go('app.home');
